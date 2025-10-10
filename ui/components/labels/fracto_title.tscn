@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgs038jmr8ivf"]
+
+[ext_resource type="Theme" uid="uid://b8ceskc6kb8lj" path="res://ui/components/labels/fracto_title.tres" id="1_18ykx"]
+
+[node name="FractoTitle" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("1_18ykx")
+text = "FRACTO"
+horizontal_alignment = 1
+vertical_alignment = 1
