@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://q5emloaay8c6"]
+
+[ext_resource type="Script" uid="uid://b1rb78dlsnnfb" path="res://ui/components/input/input.gd" id="1_4g60w"]
+[ext_resource type="FontFile" uid="uid://b1qajf87wwgo7" path="res://assets/fredoka/static/Fredoka-Medium.ttf" id="1_04qag"]
+[ext_resource type="FontFile" uid="uid://bqlpgay6g1lwy" path="res://assets/fredoka/static/Fredoka-Regular.ttf" id="2_4g60w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04qag"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.99607843, 0.9764706, 0.8901961, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.3372549, 0.15686275, 0.96862745, 0.49411765)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4g60w"]
+draw_center = false
+
+[node name="Input" type="VBoxContainer"]
+offset_right = 500.0
+offset_bottom = 102.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_4g60w")
+
+[node name="FieldName" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.99607843, 0.9764706, 0.9019608, 1)
+theme_override_fonts/font = ExtResource("1_04qag")
+theme_override_font_sizes/font_size = 36
+text = "Nombre del campo"
+
+[node name="FieldInput" type="LineEdit" parent="."]
+layout_mode = 2
+focus_mode = 1
+theme_override_colors/font_color = Color(0.3882353, 0.21176471, 0.78039217, 1)
+theme_override_colors/caret_color = Color(0.27513075, 0.1305213, 0.5763956, 1)
+theme_override_fonts/font = ExtResource("2_4g60w")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_04qag")
+theme_override_styles/focus = SubResource("StyleBoxFlat_4g60w")
+caret_blink = true

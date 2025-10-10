@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfe2pxeqwokec"]
+[gd_scene load_steps=5 format=3 uid="uid://cfe2pxeqwokec"]
 
 [ext_resource type="PackedScene" uid="uid://bf1t5p78ivl55" path="res://ui/components/buttons/button_custom.tscn" id="1_fsom3"]
+[ext_resource type="Script" uid="uid://bkahph5xexry8" path="res://scenes/main_menu/main_menu.gd" id="1_uqeha"]
 [ext_resource type="PackedScene" uid="uid://bgs038jmr8ivf" path="res://ui/components/labels/fracto_title.tscn" id="2_0ebjn"]
 [ext_resource type="Theme" uid="uid://bbud5i878nklp" path="res://ui/components/labels/session_config.tres" id="2_ob46e"]
 
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_uqeha")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 1
@@ -79,3 +81,8 @@ text = "Acerca de"
 
 [node name="ColorRect" type="ColorRect" parent="Layout"]
 layout_mode = 2
+
+[connection signal="pressed" from="Layout/MenuButtons/Configure" to="." method="_on_configure_pressed"]
+[connection signal="pressed" from="Layout/MenuButtons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Layout/MenuButtons/Stats" to="." method="_on_stats_pressed"]
+[connection signal="pressed" from="Layout/MenuButtons/About" to="." method="_on_about_pressed"]

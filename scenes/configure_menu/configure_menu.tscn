@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://yovos640jb7l"]
+
+[ext_resource type="Script" uid="uid://onaicqdi6hw1" path="res://scenes/configure_menu/configure_menu.gd" id="1_vuo8d"]
+[ext_resource type="PackedScene" uid="uid://bgs038jmr8ivf" path="res://ui/components/labels/fracto_title.tscn" id="1_yd56v"]
+[ext_resource type="PackedScene" uid="uid://q5emloaay8c6" path="res://ui/components/input/input.tscn" id="2_i7x6x"]
+[ext_resource type="PackedScene" uid="uid://bf1t5p78ivl55" path="res://ui/components/buttons/button_custom.tscn" id="3_hf04e"]
+
+[node name="ConfigureMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vuo8d")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47058824, 0.3254902, 0.972549, 1)
+
+[node name="Inputs" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="MenuTitle" parent="Inputs" instance=ExtResource("1_yd56v")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.99607843, 0.9764706, 0.9019608, 1)
+text = "Sesión"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Inputs"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="School" parent="Inputs/VBoxContainer" instance=ExtResource("2_i7x6x")]
+layout_mode = 2
+fieldName = "Escuela"
+
+[node name="Group" parent="Inputs/VBoxContainer" instance=ExtResource("2_i7x6x")]
+layout_mode = 2
+fieldName = "Grupo"
+
+[node name="Rounds" parent="Inputs/VBoxContainer" instance=ExtResource("2_i7x6x")]
+layout_mode = 2
+fieldName = "Número de rondas"
+inputType = 2
+
+[node name="Duration" parent="Inputs/VBoxContainer" instance=ExtResource("2_i7x6x")]
+layout_mode = 2
+fieldName = "Duración de las rondas"
+inputType = 2
+
+[node name="Save" parent="Inputs" instance=ExtResource("3_hf04e")]
+layout_mode = 2
+text = "Guardar"
+
+[connection signal="pressed" from="Inputs/Save" to="." method="_on_save_pressed"]
