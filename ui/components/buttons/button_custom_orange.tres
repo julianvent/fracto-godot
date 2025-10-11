@@ -1,9 +1,9 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://d2vo3s1vp6uk1"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://c74cawrfo40xk"]
 
-[ext_resource type="FontFile" uid="uid://bi7v6tsekvh83" path="res://assets/fredoka/static/Fredoka-SemiBold.ttf" id="1_4ab4r"]
+[ext_resource type="FontFile" uid="uid://bi7v6tsekvh83" path="res://assets/fredoka/static/Fredoka-SemiBold.ttf" id="1_mmdkn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ab4r"]
-bg_color = Color(0.99607843, 0.654902, 0, 1)
+bg_color = Color(0.99215686, 0.41960785, 0.047058824, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
@@ -13,7 +13,7 @@ shadow_size = 2
 shadow_offset = Vector2(0, 4)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3kwa"]
-bg_color = Color(0.91897714, 0.6028278, 1.1551381e-06, 1)
+bg_color = Color(0.75033015, 0.3061127, 0.007857249, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
@@ -23,7 +23,7 @@ shadow_size = 2
 shadow_offset = Vector2(0, 4)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efdnc"]
-bg_color = Color(0.99607843, 0.654902, 0, 1)
+bg_color = Color(0.99215686, 0.41960785, 0.047058824, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
@@ -33,7 +33,7 @@ shadow_size = 2
 shadow_offset = Vector2(0, 4)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3oyp1"]
-bg_color = Color(0.91897714, 0.6028278, 1.1551381e-06, 1)
+bg_color = Color(0.7490196, 0.30588236, 0.007843138, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
@@ -61,7 +61,7 @@ Button/constants/h_separation = 4
 Button/constants/icon_max_width = 0
 Button/constants/outline_size = 0
 Button/font_sizes/font_size = 48
-Button/fonts/font = ExtResource("1_4ab4r")
+Button/fonts/font = ExtResource("1_mmdkn")
 Button/styles/focus = SubResource("StyleBoxFlat_4ab4r")
 Button/styles/hover = SubResource("StyleBoxFlat_c3kwa")
 Button/styles/normal = SubResource("StyleBoxFlat_efdnc")

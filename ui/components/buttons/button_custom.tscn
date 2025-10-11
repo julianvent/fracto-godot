@@ -3,12 +3,12 @@
 [ext_resource type="Theme" uid="uid://d2vo3s1vp6uk1" path="res://ui/components/buttons/button_custom.tres" id="2_r2lkw"]
 
 [node name="ButtonCustom" type="Button"]
-custom_minimum_size = Vector2(500, 120)
-offset_right = 320.0
-offset_bottom = 80.0
+custom_minimum_size = Vector2(500, 85)
+offset_right = 126.0
+offset_bottom = 59.0
+size_flags_horizontal = 4
 size_flags_vertical = 3
 focus_mode = 0
 theme = ExtResource("2_r2lkw")
 action_mode = 0
-text = "Comenzar partida
-"
+text = "Jugar"

@@ -1,9 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfe2pxeqwokec"]
+[gd_scene load_steps=8 format=3 uid="uid://cfe2pxeqwokec"]
 
 [ext_resource type="PackedScene" uid="uid://bf1t5p78ivl55" path="res://ui/components/buttons/button_custom.tscn" id="1_fsom3"]
 [ext_resource type="Script" uid="uid://bkahph5xexry8" path="res://scenes/main_menu/main_menu.gd" id="1_uqeha"]
 [ext_resource type="PackedScene" uid="uid://bgs038jmr8ivf" path="res://ui/components/labels/fracto_title.tscn" id="2_0ebjn"]
-[ext_resource type="Theme" uid="uid://bbud5i878nklp" path="res://ui/components/labels/session_config.tres" id="2_ob46e"]
+[ext_resource type="FontFile" uid="uid://bi7v6tsekvh83" path="res://assets/fredoka/static/Fredoka-SemiBold.ttf" id="3_wem23"]
+[ext_resource type="Theme" uid="uid://c74cawrfo40xk" path="res://ui/components/buttons/button_custom_orange.tres" id="4_uqeha"]
+[ext_resource type="Theme" uid="uid://bnjh22fo6fne7" path="res://ui/components/buttons/button_custom_red.tres" id="6_3ovsr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ob46e"]
+content_margin_left = 40.0
+content_margin_top = 50.0
+content_margin_right = 40.0
+content_margin_bottom = 50.0
+bg_color = Color(0.3882353, 0.21176471, 0.78039217, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -23,66 +36,78 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.47058824, 0.3254902, 0.972549, 1)
 
-[node name="Layout" type="VBoxContainer" parent="."]
+[node name="FractoTitle" parent="." instance=ExtResource("2_0ebjn")]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = -320.0
-offset_right = 160.0
-offset_bottom = 320.0
+offset_left = -230.0
+offset_top = 100.0
+offset_right = 230.0
+offset_bottom = 246.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 100
 
-[node name="FractoTitle" parent="Layout" instance=ExtResource("2_0ebjn")]
-layout_mode = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_top = 400.0
+offset_right = 250.0
+offset_bottom = 542.0
+grow_horizontal = 2
+theme_override_constants/separation = 15
 
-[node name="SessionConfig" type="VBoxContainer" parent="Layout"]
+[node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="Layout/SessionConfig"]
-layout_mode = 2
-theme = ExtResource("2_ob46e")
-text = "Sesión activa:"
+theme_override_fonts/font = ExtResource("3_wem23")
+theme_override_font_sizes/font_size = 38
+text = "¡Practica ahora!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Layout/SessionConfig"]
+[node name="Play" parent="VBoxContainer" instance=ExtResource("1_fsom3")]
 layout_mode = 2
-theme = ExtResource("2_ob46e")
-text = "Universidad Veracruzana LIS-701"
-vertical_alignment = 1
-text_overrun_behavior = 3
+text = "Jugar
+"
 
-[node name="MenuButtons" type="VBoxContainer" parent="Layout"]
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -280.0
+offset_top = -580.0
+offset_right = 280.0
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ob46e")
+
+[node name="MenuButtons" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 40
 
-[node name="Configure" parent="Layout/MenuButtons" instance=ExtResource("1_fsom3")]
+[node name="Stats" parent="PanelContainer/MenuButtons" instance=ExtResource("1_fsom3")]
 layout_mode = 2
-text = "Configurar sesión"
-
-[node name="Start" parent="Layout/MenuButtons" instance=ExtResource("1_fsom3")]
-layout_mode = 2
-
-[node name="Stats" parent="Layout/MenuButtons" instance=ExtResource("1_fsom3")]
-layout_mode = 2
+theme = ExtResource("4_uqeha")
 text = "Estadísticas
 "
 
-[node name="About" parent="Layout/MenuButtons" instance=ExtResource("1_fsom3")]
+[node name="About" parent="PanelContainer/MenuButtons" instance=ExtResource("1_fsom3")]
 layout_mode = 2
+theme = ExtResource("4_uqeha")
 text = "Acerca de"
 
-[node name="ColorRect" type="ColorRect" parent="Layout"]
+[node name="About2" parent="PanelContainer/MenuButtons" instance=ExtResource("1_fsom3")]
 layout_mode = 2
+theme = ExtResource("6_3ovsr")
+text = "Cerrar sesión"
 
-[connection signal="pressed" from="Layout/MenuButtons/Configure" to="." method="_on_configure_pressed"]
-[connection signal="pressed" from="Layout/MenuButtons/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Layout/MenuButtons/Stats" to="." method="_on_stats_pressed"]
-[connection signal="pressed" from="Layout/MenuButtons/About" to="." method="_on_about_pressed"]
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="PanelContainer/MenuButtons/Stats" to="." method="_on_stats_pressed"]
+[connection signal="pressed" from="PanelContainer/MenuButtons/About" to="." method="_on_about_pressed"]
