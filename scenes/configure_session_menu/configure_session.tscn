@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dl0jx0xl7tc05"]
+[gd_scene load_steps=10 format=3 uid="uid://dl0jx0xl7tc05"]
 
 [ext_resource type="Theme" uid="uid://delr504llxavj" path="res://ui/components/labels/menu_title.tres" id="1_3dag7"]
+[ext_resource type="Script" uid="uid://by7hyxuqtnt4t" path="res://scenes/configure_session_menu/configure_session.gd" id="1_w3fo7"]
 [ext_resource type="StyleBox" uid="uid://3l653hvj06w3" path="res://ui/components/panel/panel.tres" id="2_gj7vs"]
 [ext_resource type="PackedScene" uid="uid://bf1t5p78ivl55" path="res://ui/components/buttons/button_custom.tscn" id="3_6jgk4"]
 [ext_resource type="Theme" uid="uid://dib6hltpuum6c" path="res://ui/components/labels/subtitle.tres" id="3_khi0d"]
@@ -16,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_w3fo7")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 1
@@ -37,7 +39,8 @@ offset_right = 254.0
 offset_bottom = 163.0
 grow_horizontal = 2
 theme = ExtResource("1_3dag7")
-text = "Configurar sesión"
+text = "Sesión"
+horizontal_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -110,13 +113,13 @@ layout_mode = 2
 theme = ExtResource("4_3awmi")
 text = "2 minutos 30 segundos"
 
-[node name="ButtonCustom" parent="PanelContainer/VBoxContainer" instance=ExtResource("3_6jgk4")]
+[node name="ConfigSession" parent="PanelContainer/VBoxContainer" instance=ExtResource("3_6jgk4")]
 layout_mode = 2
 theme = ExtResource("7_a8j6n")
 theme_override_font_sizes/font_size = 36
 text = "Configurar sesión"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Buttons" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -131,11 +134,13 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 25
 
-[node name="ButtonCustom" parent="VBoxContainer" instance=ExtResource("3_6jgk4")]
+[node name="Continue" parent="Buttons" instance=ExtResource("3_6jgk4")]
 layout_mode = 2
 text = "Continuar"
 
-[node name="ButtonCustom2" parent="VBoxContainer" instance=ExtResource("3_6jgk4")]
+[node name="Back" parent="Buttons" instance=ExtResource("3_6jgk4")]
 layout_mode = 2
 theme = ExtResource("8_bdnfl")
 text = "Volver"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ConfigSession" to="." method="_on_config_session_pressed"]

@@ -48,9 +48,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -250.0
-offset_top = -246.0
+offset_top = -248.5
 offset_right = 250.0
-offset_bottom = -99.0
+offset_bottom = -96.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
@@ -103,6 +103,8 @@ text = "Acerca de"
 layout_mode = 2
 theme = ExtResource("6_3ovsr")
 text = "Cerrar sesión"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="PanelContainer/MenuButtons/Stats" to="." method="_on_stats_pressed"]

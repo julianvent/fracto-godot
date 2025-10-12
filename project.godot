@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="fracto"
-run/main_scene="uid://cfe2pxeqwokec"
+run/main_scene="uid://d1sn4hj4xcvsm"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SceneManager="*res://src/controllers/scene_manager.gd"
 
 [display]
 
