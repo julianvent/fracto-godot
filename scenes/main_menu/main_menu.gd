@@ -2,11 +2,11 @@ extends Control
 
 
 func _on_configure_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/configure_menu/configure_menu.tscn")
+	pass
 
 
 func _on_play_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/configure_session_menu/configure_session.tscn")
 
 
 func _on_stats_pressed() -> void:

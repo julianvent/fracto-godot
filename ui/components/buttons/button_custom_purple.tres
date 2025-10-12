@@ -1,0 +1,68 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bulw0ba8v1e06"]
+
+[ext_resource type="FontFile" uid="uid://bi7v6tsekvh83" path="res://assets/fredoka/static/Fredoka-SemiBold.ttf" id="1_sh6na"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ab4r"]
+bg_color = Color(0.3882353, 0.21176471, 0.78039217, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.3254902, 0.2784314, 0.61960787, 1)
+shadow_size = 2
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3kwa"]
+bg_color = Color(0.351839, 0.18222344, 0.7173111, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.3254902, 0.2784314, 0.61960787, 1)
+shadow_size = 2
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efdnc"]
+bg_color = Color(0.3882353, 0.21176471, 0.78039217, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.3254902, 0.2784314, 0.61960787, 1)
+shadow_size = 2
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3oyp1"]
+bg_color = Color(0.36332235, 0.19107926, 0.7375868, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.3254902, 0.2784314, 0.61960787, 1)
+shadow_size = 2
+shadow_offset = Vector2(0, 4)
+
+[resource]
+Button/colors/font_color = Color(0.99607843, 0.9764706, 0.9019608, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.99607843, 0.9764706, 0.9019608, 1)
+Button/colors/font_hover_color = Color(0.99607843, 0.9764706, 0.9019608, 1)
+Button/colors/font_hover_pressed_color = Color(0.99607843, 0.9764706, 0.9019608, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 48
+Button/fonts/font = ExtResource("1_sh6na")
+Button/styles/focus = SubResource("StyleBoxFlat_4ab4r")
+Button/styles/hover = SubResource("StyleBoxFlat_c3kwa")
+Button/styles/normal = SubResource("StyleBoxFlat_efdnc")
+Button/styles/pressed = SubResource("StyleBoxFlat_3oyp1")

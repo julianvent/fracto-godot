@@ -5,18 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bgs038jmr8ivf" path="res://ui/components/labels/fracto_title.tscn" id="2_0ebjn"]
 [ext_resource type="FontFile" uid="uid://bi7v6tsekvh83" path="res://assets/fredoka/static/Fredoka-SemiBold.ttf" id="3_wem23"]
 [ext_resource type="Theme" uid="uid://c74cawrfo40xk" path="res://ui/components/buttons/button_custom_orange.tres" id="4_uqeha"]
+[ext_resource type="StyleBox" uid="uid://3l653hvj06w3" path="res://ui/components/panel/panel.tres" id="5_5seab"]
 [ext_resource type="Theme" uid="uid://bnjh22fo6fne7" path="res://ui/components/buttons/button_custom_red.tres" id="6_3ovsr"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ob46e"]
-content_margin_left = 40.0
-content_margin_top = 50.0
-content_margin_right = 40.0
-content_margin_bottom = 50.0
-bg_color = Color(0.3882353, 0.21176471, 0.78039217, 1)
-corner_radius_top_left = 25
-corner_radius_top_right = 25
-corner_radius_bottom_right = 25
-corner_radius_bottom_left = 25
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -38,26 +28,32 @@ color = Color(0.47058824, 0.3254902, 0.972549, 1)
 
 [node name="FractoTitle" parent="." instance=ExtResource("2_0ebjn")]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -230.0
-offset_top = 100.0
+offset_top = -528.0
 offset_right = 230.0
-offset_bottom = 246.0
+offset_bottom = -382.0
 grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -250.0
-offset_top = 400.0
+offset_top = -246.0
 offset_right = 250.0
-offset_bottom = 542.0
+offset_bottom = -99.0
 grow_horizontal = 2
-theme_override_constants/separation = 15
+grow_vertical = 2
+theme_override_constants/separation = 20
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -74,18 +70,18 @@ text = "Jugar
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -280.0
-offset_top = -580.0
-offset_right = 280.0
-offset_bottom = -180.0
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = 24.0
+offset_right = 290.0
+offset_bottom = 459.0
 grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_ob46e")
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("5_5seab")
 
 [node name="MenuButtons" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
@@ -108,6 +104,6 @@ layout_mode = 2
 theme = ExtResource("6_3ovsr")
 text = "Cerrar sesión"
 
-[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="PanelContainer/MenuButtons/Stats" to="." method="_on_stats_pressed"]
 [connection signal="pressed" from="PanelContainer/MenuButtons/About" to="." method="_on_about_pressed"]
