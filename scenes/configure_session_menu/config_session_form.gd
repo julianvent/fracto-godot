@@ -19,10 +19,10 @@ func _load_config_data():
 
 
 func _on_save_pressed():
-	var school = $PanelContainer/Form/School/School.text
-	var group = $PanelContainer/Form/Group/Group.text
-	var minutes = $PanelContainer/Form/Duration/HBoxContainer/Minutes/Minutes.text
-	var seconds = $PanelContainer/Form/Duration/HBoxContainer/Seconds/Seconds.text
+	var school = $PanelContainer/Form/School/School.text.strip_edges()
+	var group = $PanelContainer/Form/Group/Group.text.strip_edges()
+	var minutes = $PanelContainer/Form/Duration/HBoxContainer/Minutes/Minutes.text.strip_edges()
+	var seconds = $PanelContainer/Form/Duration/HBoxContainer/Seconds/Seconds.text.strip_edges()
 	
 	if len(seconds) == 1:
 		seconds = "0"+seconds
