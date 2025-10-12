@@ -7,6 +7,7 @@ func _ready():
 	
 	# Using a negative index counts from the end, so this gets the last child node of `root`.
 	current_scene = root.get_child(-1)
+	
 
 enum MENUS {
 	NONE,

@@ -1,19 +1,9 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bulw0ba8v1e06"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bulw0ba8v1e06"]
 
 [ext_resource type="FontFile" uid="uid://bi7v6tsekvh83" path="res://assets/fredoka/static/Fredoka-SemiBold.ttf" id="1_sh6na"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ab4r"]
 bg_color = Color(0.3882353, 0.21176471, 0.78039217, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_color = Color(0.3254902, 0.2784314, 0.61960787, 1)
-shadow_size = 2
-shadow_offset = Vector2(0, 4)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3kwa"]
-bg_color = Color(0.351839, 0.18222344, 0.7173111, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -63,6 +53,6 @@ Button/constants/outline_size = 0
 Button/font_sizes/font_size = 48
 Button/fonts/font = ExtResource("1_sh6na")
 Button/styles/focus = SubResource("StyleBoxFlat_4ab4r")
-Button/styles/hover = SubResource("StyleBoxFlat_c3kwa")
+Button/styles/hover = SubResource("StyleBoxFlat_efdnc")
 Button/styles/normal = SubResource("StyleBoxFlat_efdnc")
 Button/styles/pressed = SubResource("StyleBoxFlat_3oyp1")

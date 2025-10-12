@@ -1,7 +1,8 @@
 extends Control
 
 func _ready() -> void:
-	pass	
+	pass
+
 
 func _on_configure_pressed() -> void:
 	pass

@@ -21,6 +21,9 @@ func _load_config_data():
 	var minutes = ConfigManager.config.get_value(ConfigManager.SESSION_SECTION, "minutes")
 	var seconds = ConfigManager.config.get_value(ConfigManager.SESSION_SECTION, "seconds")
 	
+	if len(seconds) == 1:
+		seconds = "0"+seconds
+	
 	$PanelContainer/VBoxContainer/VBoxContainer/School.text = school
 	$PanelContainer/VBoxContainer/VBoxContainer2/Group.text = group
-	$PanelContainer/VBoxContainer/VBoxContainer3/Duration.text = minutes + " min. " + seconds + " seg."
+	$PanelContainer/VBoxContainer/VBoxContainer3/Duration.text = minutes + ":" + seconds

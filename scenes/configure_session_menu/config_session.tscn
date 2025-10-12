@@ -80,6 +80,7 @@ text = "Escuela"
 layout_mode = 2
 theme = ExtResource("5_j6g3y")
 text = "Universidad Veracruzana"
+text_overrun_behavior = 3
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -96,6 +97,7 @@ text = "Grupo"
 layout_mode = 2
 theme = ExtResource("5_j6g3y")
 text = "LIS-701"
+text_overrun_behavior = 3
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -112,6 +114,7 @@ text = "Duración por ronda"
 layout_mode = 2
 theme = ExtResource("5_j6g3y")
 text = "2 minutos 30 segundos"
+text_overrun_behavior = 3
 
 [node name="ConfigSession" parent="PanelContainer/VBoxContainer" instance=ExtResource("7_ppctq")]
 layout_mode = 2
