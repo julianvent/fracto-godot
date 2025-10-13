@@ -27,3 +27,7 @@ func _load_config_data():
 	$PanelContainer/VBoxContainer/VBoxContainer/School.text = school
 	$PanelContainer/VBoxContainer/VBoxContainer2/Group.text = group
 	$PanelContainer/VBoxContainer/VBoxContainer3/Duration.text = minutes + ":" + seconds
+
+
+func _on_continue_pressed() -> void:
+	SceneManager.change_scene(SceneManager.MENUS.PLAYER_CONFIG_MENU)

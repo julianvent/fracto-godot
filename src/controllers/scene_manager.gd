@@ -13,13 +13,15 @@ enum MENUS {
 	NONE,
 	MAIN_MENU,
 	SESSION_MENU,
-	SESSION_FORM_MENU
+	SESSION_FORM_MENU,
+	PLAYER_CONFIG_MENU,
 }
 
 var menus = {
 	MENUS.MAIN_MENU: preload("res://scenes/main_menu/main_menu.tscn"),
 	MENUS.SESSION_MENU: preload("res://scenes/configure_session_menu/config_session.tscn"),
 	MENUS.SESSION_FORM_MENU: preload("res://scenes/configure_session_menu/config_session_form.tscn"),
+	MENUS.PLAYER_CONFIG_MENU: preload("res://scenes/config_player/config_player.tscn"),
 }
 
 func change_scene(menu_scene):

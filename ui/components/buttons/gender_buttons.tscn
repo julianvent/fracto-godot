@@ -1,0 +1,301 @@
+[gd_scene load_steps=23 format=3 uid="uid://dcgg8j377h6o3"]
+
+[ext_resource type="ButtonGroup" uid="uid://c8nrdwe3a57s4" path="res://ui/components/buttons/gender_button_group.tres" id="2_cxai6"]
+[ext_resource type="FontFile" uid="uid://bi7v6tsekvh83" path="res://assets/fredoka/static/Fredoka-SemiBold.ttf" id="2_mrqsj"]
+[ext_resource type="PackedScene" uid="uid://cqtmrwuikpcqj" path="res://ui/components/buttons/gender_button.tscn" id="2_y3g8k"]
+[ext_resource type="Texture2D" uid="uid://c0qp2fqtg7pm4" path="res://assets/venus-solid-full.svg" id="3_y3g8k"]
+[ext_resource type="Texture2D" uid="uid://dr80615flx1m3" path="res://assets/ban-solid-full.svg" id="4_cxai6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jp47i"]
+content_margin_left = 20.0
+content_margin_top = 50.0
+content_margin_right = 20.0
+content_margin_bottom = 50.0
+bg_color = Color(0.3882353, 0.21176471, 0.78039217, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3jae"]
+content_margin_left = 4.0
+content_margin_top = 20.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.08627451, 0.5803922, 1, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 5
+shadow_color = Color(0.25490198, 0.3764706, 0.96862745, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itb3j"]
+content_margin_left = 4.0
+content_margin_top = 20.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.25490198, 0.3764706, 0.96862745, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 5
+shadow_color = Color(0.25490198, 0.3764706, 0.96862745, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fds44"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5o1x"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s20l7"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xu8g6"]
+content_margin_left = 4.0
+content_margin_top = 20.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjrpn"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Theme" id="Theme_8uyqn"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 112
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("2_mrqsj")
+Button/styles/disabled = SubResource("StyleBoxFlat_fds44")
+Button/styles/focus = SubResource("StyleBoxFlat_u5o1x")
+Button/styles/hover = SubResource("StyleBoxFlat_s20l7")
+Button/styles/normal = SubResource("StyleBoxFlat_xu8g6")
+Button/styles/pressed = SubResource("StyleBoxFlat_sjrpn")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ms8wl"]
+content_margin_left = 4.0
+content_margin_top = 20.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.93333334, 0.3882353, 0.80784315, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 5
+shadow_color = Color(0.84313726, 0.13725491, 0.68235296, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_584u1"]
+content_margin_left = 4.0
+content_margin_top = 20.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.84313726, 0.13725491, 0.68235296, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 5
+shadow_color = Color(0.84313726, 0.13725491, 0.68235296, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abloe"]
+content_margin_left = 4.0
+content_margin_top = 20.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.93333334, 0.3882353, 0.80784315, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 5
+shadow_color = Color(0.84313726, 0.13725491, 0.68235296, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qnlp4"]
+content_margin_left = 4.0
+content_margin_top = 20.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.93333334, 0.3882353, 0.80784315, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 5
+shadow_color = Color(0.84313726, 0.13725491, 0.68235296, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6hcu"]
+content_margin_left = 4.0
+content_margin_top = 20.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.8901961, 0.29411766, 0.29411766, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0.69411767, 0.1764706, 0.14901961, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsq3y"]
+content_margin_left = 4.0
+content_margin_top = 20.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.69411767, 0.1764706, 0.14901961, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0.69411767, 0.1764706, 0.14901961, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mev0"]
+content_margin_left = 4.0
+content_margin_top = 20.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.8901961, 0.29411766, 0.29411766, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0.69411767, 0.1764706, 0.14901961, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xvgt"]
+content_margin_left = 4.0
+content_margin_top = 20.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.8901961, 0.29411766, 0.29411766, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0.69411767, 0.1764706, 0.14901961, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+
+[node name="PanelContainer" type="PanelContainer"]
+offset_right = 700.0
+offset_bottom = 332.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jp47i")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="GenderButton" parent="HBoxContainer" instance=ExtResource("2_y3g8k")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_q3jae")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_itb3j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q3jae")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_q3jae")
+toggle_mode = true
+button_group = ExtResource("2_cxai6")
+
+[node name="GenderButton2" parent="HBoxContainer" instance=ExtResource("2_y3g8k")]
+layout_mode = 2
+theme = SubResource("Theme_8uyqn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ms8wl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_584u1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_abloe")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_qnlp4")
+toggle_mode = true
+button_group = ExtResource("2_cxai6")
+text = "Femenino"
+icon = ExtResource("3_y3g8k")
+
+[node name="GenderButton3" parent="HBoxContainer" instance=ExtResource("2_y3g8k")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_x6hcu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wsq3y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3mev0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_5xvgt")
+toggle_mode = true
+button_group = ExtResource("2_cxai6")
+text = "Prefiero no decirlo"
+icon = ExtResource("4_cxai6")

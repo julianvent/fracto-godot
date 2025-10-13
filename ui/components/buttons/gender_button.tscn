@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqtmrwuikpcqj"]
+
+[ext_resource type="Theme" uid="uid://bdn3yhbobww8t" path="res://ui/components/buttons/gender_button.tres" id="1_xmsnx"]
+[ext_resource type="Texture2D" uid="uid://cp457vq3gybje" path="res://assets/mars-solid-full.svg" id="2_m6x5e"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_xmsnx"]
+
+[node name="GenderButton" type="Button"]
+custom_minimum_size = Vector2(180, 200)
+offset_right = 180.0
+offset_bottom = 250.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xmsnx")
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_xmsnx")
+text = "Masculino"
+icon = ExtResource("2_m6x5e")
+autowrap_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true

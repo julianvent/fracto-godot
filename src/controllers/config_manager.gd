@@ -2,6 +2,7 @@ extends Node
 
 static var CONFIG_PATH = "user://config.cfg"
 static var SESSION_SECTION = "Session"
+static var PLAYER_SECTION = "Player"
 var config = ConfigFile.new()
 
 func load_config():
@@ -18,5 +19,6 @@ func save_session_config(school: String, group: String, minutes: String, seconds
 	config.set_value(SESSION_SECTION, "minutes", minutes)
 	config.set_value(SESSION_SECTION, "seconds", seconds)
 	config.save(CONFIG_PATH)
+
 	
 	
