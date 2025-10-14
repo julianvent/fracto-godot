@@ -99,11 +99,12 @@ layout_mode = 2
 theme = ExtResource("4_uqeha")
 text = "Acerca de"
 
-[node name="About2" parent="PanelContainer/MenuButtons" instance=ExtResource("1_fsom3")]
+[node name="Exit" parent="PanelContainer/MenuButtons" instance=ExtResource("1_fsom3")]
 layout_mode = 2
 theme = ExtResource("6_3ovsr")
-text = "Cerrar sesión"
+text = "Salir"
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="PanelContainer/MenuButtons/Stats" to="." method="_on_stats_pressed"]
 [connection signal="pressed" from="PanelContainer/MenuButtons/About" to="." method="_on_about_pressed"]
+[connection signal="pressed" from="PanelContainer/MenuButtons/Exit" to="." method="_on_exit_pressed"]

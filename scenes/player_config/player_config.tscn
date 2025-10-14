@@ -1,0 +1,354 @@
+[gd_scene load_steps=24 format=3 uid="uid://ci710rsftb1b2"]
+
+[ext_resource type="Script" uid="uid://xex07hxg0pe4" path="res://scenes/player_config/player_config.gd" id="1_juank"]
+[ext_resource type="Theme" uid="uid://delr504llxavj" path="res://ui/components/labels/menu_title.tres" id="1_vr0fb"]
+[ext_resource type="FontFile" uid="uid://bqlpgay6g1lwy" path="res://assets/fredoka/static/Fredoka-Regular.ttf" id="2_blfh5"]
+[ext_resource type="Theme" uid="uid://bdn3yhbobww8t" path="res://ui/components/buttons/gender_button.tres" id="3_8kaxn"]
+[ext_resource type="PackedScene" uid="uid://bf1t5p78ivl55" path="res://ui/components/buttons/button_custom.tscn" id="4_0odvf"]
+[ext_resource type="Texture2D" uid="uid://cp457vq3gybje" path="res://assets/mars-solid-full.svg" id="4_6vyjw"]
+[ext_resource type="ButtonGroup" uid="uid://c8nrdwe3a57s4" path="res://ui/components/buttons/gender_button_group.tres" id="4_juank"]
+[ext_resource type="Theme" uid="uid://bulw0ba8v1e06" path="res://ui/components/buttons/button_custom_purple.tres" id="5_xtq6a"]
+[ext_resource type="Texture2D" uid="uid://c0qp2fqtg7pm4" path="res://assets/venus-solid-full.svg" id="6_33uhc"]
+[ext_resource type="Texture2D" uid="uid://dr80615flx1m3" path="res://assets/ban-solid-full.svg" id="7_ski7o"]
+[ext_resource type="Theme" uid="uid://ck8qjw157esgd" path="res://ui/components/labels/text.tres" id="9_fo7my"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xtq6a"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.99607843, 0.9764706, 0.8901961, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.3372549, 0.15686275, 0.96862745, 0.49411765)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_filc7"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ilnk"]
+content_margin_left = 20.0
+content_margin_top = 50.0
+content_margin_right = 20.0
+content_margin_bottom = 50.0
+bg_color = Color(0.3882353, 0.21176471, 0.78039217, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3rvv"]
+content_margin_left = 4.0
+content_margin_top = 20.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.08627451, 0.5803922, 1, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 5
+shadow_color = Color(0.25490198, 0.3764706, 0.96862745, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h4deg"]
+content_margin_left = 4.0
+content_margin_top = 20.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.25490198, 0.3764706, 0.96862745, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 5
+shadow_color = Color(0.25490198, 0.3764706, 0.96862745, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nk3h2"]
+content_margin_left = 4.0
+content_margin_top = 20.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.93333334, 0.3882353, 0.80784315, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 5
+shadow_color = Color(0.84313726, 0.13725491, 0.68235296, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_im8ym"]
+content_margin_left = 4.0
+content_margin_top = 20.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.84313726, 0.13725491, 0.68235296, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 5
+shadow_color = Color(0.84313726, 0.13725491, 0.68235296, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mho6x"]
+content_margin_left = 4.0
+content_margin_top = 20.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.93333334, 0.3882353, 0.80784315, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 5
+shadow_color = Color(0.84313726, 0.13725491, 0.68235296, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abulb"]
+content_margin_left = 4.0
+content_margin_top = 20.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.93333334, 0.3882353, 0.80784315, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 5
+shadow_color = Color(0.84313726, 0.13725491, 0.68235296, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vyjw"]
+content_margin_left = 4.0
+content_margin_top = 20.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.8901961, 0.29411766, 0.29411766, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0.69411767, 0.1764706, 0.14901961, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8kaxn"]
+content_margin_left = 4.0
+content_margin_top = 20.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.69411767, 0.1764706, 0.14901961, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0.69411767, 0.1764706, 0.14901961, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_raru1"]
+content_margin_left = 4.0
+content_margin_top = 20.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.8901961, 0.29411766, 0.29411766, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0.69411767, 0.1764706, 0.14901961, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+
+[node name="ConfigPlayer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_juank")
+group = ExtResource("4_juank")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47058824, 0.3254902, 0.972549, 1)
+
+[node name="MenuTitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -254.0
+offset_top = 84.0
+offset_right = 254.0
+offset_bottom = 163.0
+grow_horizontal = 2
+theme = ExtResource("1_vr0fb")
+text = "Datos del jugador"
+horizontal_alignment = 1
+
+[node name="Alias" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -330.0
+offset_right = 250.0
+offset_bottom = -265.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+theme_override_colors/font_color = Color(0.3882353, 0.21176471, 0.78039217, 1)
+theme_override_colors/font_placeholder_color = Color(0.827451, 0.7607843, 0.69803923, 1)
+theme_override_colors/caret_color = Color(0.27513075, 0.1305213, 0.5763956, 1)
+theme_override_fonts/font = ExtResource("2_blfh5")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_xtq6a")
+theme_override_styles/focus = SubResource("StyleBoxFlat_filc7")
+placeholder_text = "Alias (Opcional)"
+alignment = 1
+caret_blink = true
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -330.0
+offset_top = -200.0
+offset_right = 330.0
+offset_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6ilnk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Masculine" type="Button" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(180, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_8kaxn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_l3rvv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h4deg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_l3rvv")
+toggle_mode = true
+action_mode = 0
+button_group = ExtResource("4_juank")
+text = "Masculino"
+icon = ExtResource("4_6vyjw")
+autowrap_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Femenine" type="Button" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(180, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_8kaxn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nk3h2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_im8ym")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mho6x")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_abulb")
+toggle_mode = true
+action_mode = 0
+button_group = ExtResource("4_juank")
+text = "Femenino"
+icon = ExtResource("6_33uhc")
+autowrap_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Neither" type="Button" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(180, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_8kaxn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6vyjw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8kaxn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_raru1")
+toggle_mode = true
+action_mode = 0
+button_group = ExtResource("4_juank")
+text = "Prefiero no decirlo"
+icon = ExtResource("7_ski7o")
+autowrap_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="GenderError" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -310.0
+offset_top = 143.0
+offset_right = 310.0
+offset_bottom = 183.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_fo7my")
+theme_override_colors/font_color = Color(0.8901961, 0.29411766, 0.29411766, 1)
+text = "Requerido"
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 423.0
+offset_right = 250.0
+offset_bottom = 618.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="Play" parent="Buttons" instance=ExtResource("4_0odvf")]
+layout_mode = 2
+
+[node name="Back" parent="Buttons" instance=ExtResource("4_0odvf")]
+layout_mode = 2
+theme = ExtResource("5_xtq6a")
+text = "Volver"
+
+[connection signal="pressed" from="Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Buttons/Back" to="." method="_on_back_pressed"]

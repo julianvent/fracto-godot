@@ -1,0 +1,151 @@
+[gd_scene load_steps=10 format=3 uid="uid://dl0jx0xl7tc05"]
+
+[ext_resource type="Script" uid="uid://by7hyxuqtnt4t" path="res://scenes/session_config/session_menu.gd" id="1_ukvaf"]
+[ext_resource type="Theme" uid="uid://delr504llxavj" path="res://ui/components/labels/menu_title.tres" id="2_etny8"]
+[ext_resource type="StyleBox" uid="uid://3l653hvj06w3" path="res://ui/components/panel/panel.tres" id="3_tjtdn"]
+[ext_resource type="Theme" uid="uid://dib6hltpuum6c" path="res://ui/components/labels/subtitle.tres" id="4_b04oh"]
+[ext_resource type="Theme" uid="uid://ck8qjw157esgd" path="res://ui/components/labels/text.tres" id="5_lsa8n"]
+[ext_resource type="FontFile" uid="uid://bi7v6tsekvh83" path="res://assets/fredoka/static/Fredoka-SemiBold.ttf" id="6_p1tj2"]
+[ext_resource type="PackedScene" uid="uid://bf1t5p78ivl55" path="res://ui/components/buttons/button_custom.tscn" id="7_jfb5x"]
+[ext_resource type="Theme" uid="uid://c74cawrfo40xk" path="res://ui/components/buttons/button_custom_orange.tres" id="8_swrjh"]
+[ext_resource type="Theme" uid="uid://bulw0ba8v1e06" path="res://ui/components/buttons/button_custom_purple.tres" id="9_03lcs"]
+
+[node name="Session" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ukvaf")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47058824, 0.3254902, 0.972549, 1)
+
+[node name="MenuTitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -254.0
+offset_top = 84.0
+offset_right = 254.0
+offset_bottom = 163.0
+grow_horizontal = 2
+theme = ExtResource("2_etny8")
+text = "Sesión"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -290.0
+offset_top = 226.0
+offset_right = 290.0
+offset_bottom = 878.0
+grow_horizontal = 2
+theme_override_styles/panel = ExtResource("3_tjtdn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_b04oh")
+text = "Datos de la sesión"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_lsa8n")
+theme_override_fonts/font = ExtResource("6_p1tj2")
+theme_override_font_sizes/font_size = 36
+text = "Escuela"
+
+[node name="School" type="Label" parent="PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_lsa8n")
+text = "Universidad Veracruzana"
+text_overrun_behavior = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("5_lsa8n")
+theme_override_fonts/font = ExtResource("6_p1tj2")
+theme_override_font_sizes/font_size = 36
+text = "Grupo"
+
+[node name="Group" type="Label" parent="PanelContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("5_lsa8n")
+text = "LIS-701"
+text_overrun_behavior = 3
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("5_lsa8n")
+theme_override_fonts/font = ExtResource("6_p1tj2")
+theme_override_font_sizes/font_size = 36
+text = "Duración por ronda"
+
+[node name="Duration" type="Label" parent="PanelContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("5_lsa8n")
+text = "2 minutos 30 segundos"
+text_overrun_behavior = 3
+
+[node name="ConfigSession" parent="PanelContainer/VBoxContainer" instance=ExtResource("7_jfb5x")]
+layout_mode = 2
+theme = ExtResource("8_swrjh")
+theme_override_font_sizes/font_size = 36
+text = "Configurar sesión"
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 423.0
+offset_right = 250.0
+offset_bottom = 618.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="Continue" parent="Buttons" instance=ExtResource("7_jfb5x")]
+layout_mode = 2
+text = "Continuar"
+
+[node name="Back" parent="Buttons" instance=ExtResource("7_jfb5x")]
+layout_mode = 2
+theme = ExtResource("9_03lcs")
+text = "Volver"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ConfigSession" to="." method="_on_config_session_pressed"]
+[connection signal="pressed" from="Buttons/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Buttons/Back" to="." method="_on_back_pressed"]

@@ -9,19 +9,21 @@ func _ready():
 	current_scene = root.get_child(-1)
 	
 
-enum MENUS {
+enum SCENES {
 	NONE,
 	MAIN_MENU,
 	SESSION_MENU,
-	SESSION_FORM_MENU,
-	PLAYER_CONFIG_MENU,
+	SESSION_CONFIG,
+	PLAYER_CONFIG,
+	MINIGAME_IDENTIFICATION,
 }
 
-var menus = {
-	MENUS.MAIN_MENU: preload("res://scenes/main_menu/main_menu.tscn"),
-	MENUS.SESSION_MENU: preload("res://scenes/configure_session_menu/config_session.tscn"),
-	MENUS.SESSION_FORM_MENU: preload("res://scenes/configure_session_menu/config_session_form.tscn"),
-	MENUS.PLAYER_CONFIG_MENU: preload("res://scenes/config_player/config_player.tscn"),
+var scenes = {
+	SCENES.MAIN_MENU: preload("res://scenes/main_menu/main_menu.tscn"),
+	SCENES.SESSION_MENU: preload("res://scenes/session_config/session_menu.tscn"),
+	SCENES.SESSION_CONFIG: preload("res://scenes/session_config/session_config.tscn"),
+	SCENES.PLAYER_CONFIG: preload("res://scenes/player_config/player_config.tscn"),
+	SCENES.MINIGAME_IDENTIFICATION: preload("res://scenes/minigames/identification/identification.tscn")
 }
 
 func change_scene(menu_scene):
@@ -29,6 +31,6 @@ func change_scene(menu_scene):
 
 func _deferred_change_scene(menu_scene):
 	current_scene.free()
-	current_scene = menus[menu_scene].instantiate()
+	current_scene = scenes[menu_scene].instantiate()
 	get_tree().root.add_child(current_scene)
 	
