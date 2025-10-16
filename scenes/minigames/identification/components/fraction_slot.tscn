@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh1lnnvj8o8mt"]
+
+[ext_resource type="Script" uid="uid://bahm4qcn17esw" path="res://scenes/minigames/identification/components/fraction_slot.gd" id="1_iyypl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dwtu1"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 0.9764706, 0.9411765, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="FractionSlot" type="PanelContainer"]
+custom_minimum_size = Vector2(150, 140)
+offset_right = 150.0
+offset_bottom = 140.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_dwtu1")
+script = ExtResource("1_iyypl")
