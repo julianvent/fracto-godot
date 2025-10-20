@@ -24,3 +24,9 @@ func _http_request_completed(result, response_code, headers, body):
 	var response = json.get_data()
 
 	print(response_code)
+	
+
+
+
+func _on_register_pressed():
+	SceneManager.change_scene(SceneManager.SCENES.REGISTER)

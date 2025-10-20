@@ -1,0 +1,187 @@
+[gd_scene load_steps=11 format=3 uid="uid://cmwm7lnfbeeh2"]
+
+[ext_resource type="PackedScene" uid="uid://bgs038jmr8ivf" path="res://ui/components/labels/fracto_title.tscn" id="1_cttpy"]
+[ext_resource type="Script" uid="uid://d4d31ndk3ahtg" path="res://scenes/register/register.gd" id="1_e1oc4"]
+[ext_resource type="FontFile" uid="uid://bi7v6tsekvh83" path="res://assets/fredoka/static/Fredoka-SemiBold.ttf" id="2_e1oc4"]
+[ext_resource type="PackedScene" uid="uid://bf1t5p78ivl55" path="res://ui/components/buttons/button_custom.tscn" id="3_7u67g"]
+[ext_resource type="Theme" uid="uid://ck8qjw157esgd" path="res://ui/components/labels/text.tres" id="4_cnl32"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dgcck"]
+bg_color = Color(0.2627451, 0.13725491, 0.54509807, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htirf"]
+content_margin_left = 40.0
+content_margin_top = 60.0
+content_margin_right = 40.0
+content_margin_bottom = 50.0
+bg_color = Color(0.3882353, 0.21176471, 0.78039217, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qi5yj"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.99607843, 0.9764706, 0.8901961, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.3372549, 0.15686275, 0.96862745, 0.49411765)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fd3yg"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ylfa"]
+draw_center = false
+
+[node name="Register" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e1oc4")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47058824, 0.3254902, 0.972549, 1)
+
+[node name="Panel" type="Panel" parent="BG"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -639.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dgcck")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = -174.5
+offset_right = 290.0
+offset_bottom = 174.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_htirf")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 70
+
+[node name="FractoTitle" parent="PanelContainer/VBoxContainer2" instance=ExtResource("1_cttpy")]
+layout_mode = 2
+
+[node name="Form" type="VBoxContainer" parent="PanelContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="Fields" type="VBoxContainer" parent="PanelContainer/VBoxContainer2/Form"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Name" type="LineEdit" parent="PanelContainer/VBoxContainer2/Form/Fields"]
+layout_mode = 2
+focus_mode = 1
+theme_override_colors/font_color = Color(0.3882353, 0.21176471, 0.78039217, 1)
+theme_override_colors/font_placeholder_color = Color(0.3882353, 0.21176471, 0.78039217, 0.6627451)
+theme_override_colors/caret_color = Color(0.27513075, 0.1305213, 0.5763956, 1)
+theme_override_fonts/font = ExtResource("2_e1oc4")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_qi5yj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_fd3yg")
+placeholder_text = "Nombre completo"
+caret_blink = true
+
+[node name="Email" type="LineEdit" parent="PanelContainer/VBoxContainer2/Form/Fields"]
+layout_mode = 2
+focus_mode = 1
+theme_override_colors/font_color = Color(0.3882353, 0.21176471, 0.78039217, 1)
+theme_override_colors/font_placeholder_color = Color(0.3882353, 0.21176471, 0.78039217, 0.6627451)
+theme_override_colors/caret_color = Color(0.27513075, 0.1305213, 0.5763956, 1)
+theme_override_fonts/font = ExtResource("2_e1oc4")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_qi5yj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_fd3yg")
+placeholder_text = "Correo Electrónico"
+caret_blink = true
+
+[node name="Password" type="LineEdit" parent="PanelContainer/VBoxContainer2/Form/Fields"]
+layout_mode = 2
+focus_mode = 1
+theme_override_colors/font_color = Color(0.3882353, 0.21176471, 0.78039217, 1)
+theme_override_colors/font_placeholder_color = Color(0.3882353, 0.21176471, 0.78039217, 0.6627451)
+theme_override_colors/caret_color = Color(0.27513075, 0.1305213, 0.5763956, 1)
+theme_override_fonts/font = ExtResource("2_e1oc4")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_qi5yj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_fd3yg")
+placeholder_text = "Contraseña"
+caret_blink = true
+
+[node name="ConfirmPassword" type="LineEdit" parent="PanelContainer/VBoxContainer2/Form/Fields"]
+layout_mode = 2
+focus_mode = 1
+theme_override_colors/font_color = Color(0.3882353, 0.21176471, 0.78039217, 1)
+theme_override_colors/font_placeholder_color = Color(0.3882353, 0.21176471, 0.78039217, 0.6627451)
+theme_override_colors/caret_color = Color(0.27513075, 0.1305213, 0.5763956, 1)
+theme_override_fonts/font = ExtResource("2_e1oc4")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_qi5yj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_fd3yg")
+placeholder_text = "Confirmar contraseña"
+caret_blink = true
+
+[node name="Buttons" type="VBoxContainer" parent="PanelContainer/VBoxContainer2/Form"]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="Register" parent="PanelContainer/VBoxContainer2/Form/Buttons" instance=ExtResource("3_7u67g")]
+layout_mode = 2
+text = "Registrarse"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer2/Form/Buttons"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer2/Form/Buttons/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_cnl32")
+text = "¿Ya tienes una cuenta?"
+
+[node name="Login" type="Button" parent="PanelContainer/VBoxContainer2/Form/Buttons/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_e1oc4")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_8ylfa")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8ylfa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8ylfa")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8ylfa")
+theme_override_styles/focus = SubResource("StyleBoxFlat_8ylfa")
+text = "Inicia sesión"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer2/Form/Buttons/Register" to="." method="_on_register_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer2/Form/Buttons/HBoxContainer/Login" to="." method="_on_login_pressed"]

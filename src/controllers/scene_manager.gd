@@ -11,6 +11,8 @@ func _ready():
 
 enum SCENES {
 	NONE,
+	LOGIN,
+	REGISTER,
 	MAIN_MENU,
 	SESSION_MENU,
 	SESSION_CONFIG,
@@ -20,6 +22,8 @@ enum SCENES {
 
 var scenes = {
 	SCENES.MAIN_MENU: preload("res://scenes/main_menu/main_menu.tscn"),
+	SCENES.LOGIN: preload("res://scenes/login/login.tscn"),
+	SCENES.REGISTER: preload("res://scenes/register/register.tscn"),
 	SCENES.SESSION_MENU: preload("res://scenes/session_config/session_menu.tscn"),
 	SCENES.SESSION_CONFIG: preload("res://scenes/session_config/session_config.tscn"),
 	SCENES.PLAYER_CONFIG: preload("res://scenes/player_config/player_config.tscn"),
