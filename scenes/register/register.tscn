@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cmwm7lnfbeeh2"]
+[gd_scene load_steps=14 format=3 uid="uid://cmwm7lnfbeeh2"]
 
 [ext_resource type="PackedScene" uid="uid://bgs038jmr8ivf" path="res://ui/components/labels/fracto_title.tscn" id="1_cttpy"]
 [ext_resource type="Script" uid="uid://d4d31ndk3ahtg" path="res://scenes/register/register.gd" id="1_e1oc4"]
@@ -22,7 +22,7 @@ corner_radius_top_right = 40
 corner_radius_bottom_right = 40
 corner_radius_bottom_left = 40
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qi5yj"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cnl32"]
 content_margin_left = 20.0
 content_margin_top = 10.0
 content_margin_right = 10.0
@@ -38,6 +38,48 @@ shadow_offset = Vector2(0, 4)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fd3yg"]
 draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1oc4"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.99607843, 0.9764706, 0.8901961, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.3372549, 0.15686275, 0.96862745, 0.49411765)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7u67g"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.99607843, 0.9764706, 0.8901961, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.3372549, 0.15686275, 0.96862745, 0.49411765)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qi5yj"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.99607843, 0.9764706, 0.8901961, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.3372549, 0.15686275, 0.96862745, 0.49411765)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ylfa"]
 draw_center = false
@@ -101,7 +143,10 @@ theme_override_constants/separation = 80
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="Name" type="LineEdit" parent="PanelContainer/VBoxContainer2/Form/Fields"]
+[node name="NameContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer2/Form/Fields"]
+layout_mode = 2
+
+[node name="Name" type="LineEdit" parent="PanelContainer/VBoxContainer2/Form/Fields/NameContainer"]
 layout_mode = 2
 focus_mode = 1
 theme_override_colors/font_color = Color(0.3882353, 0.21176471, 0.78039217, 1)
@@ -109,12 +154,23 @@ theme_override_colors/font_placeholder_color = Color(0.3882353, 0.21176471, 0.78
 theme_override_colors/caret_color = Color(0.27513075, 0.1305213, 0.5763956, 1)
 theme_override_fonts/font = ExtResource("2_e1oc4")
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = SubResource("StyleBoxFlat_qi5yj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cnl32")
 theme_override_styles/focus = SubResource("StyleBoxFlat_fd3yg")
 placeholder_text = "Nombre completo"
 caret_blink = true
 
-[node name="Email" type="LineEdit" parent="PanelContainer/VBoxContainer2/Form/Fields"]
+[node name="ErrorLabel" type="Label" parent="PanelContainer/VBoxContainer2/Form/Fields/NameContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("4_cnl32")
+theme_override_colors/font_color = Color(0.8901961, 0.29411766, 0.29411766, 1)
+theme_override_font_sizes/font_size = 26
+text = "Requerido"
+
+[node name="EmailContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer2/Form/Fields"]
+layout_mode = 2
+
+[node name="Email" type="LineEdit" parent="PanelContainer/VBoxContainer2/Form/Fields/EmailContainer"]
 layout_mode = 2
 focus_mode = 1
 theme_override_colors/font_color = Color(0.3882353, 0.21176471, 0.78039217, 1)
@@ -122,12 +178,23 @@ theme_override_colors/font_placeholder_color = Color(0.3882353, 0.21176471, 0.78
 theme_override_colors/caret_color = Color(0.27513075, 0.1305213, 0.5763956, 1)
 theme_override_fonts/font = ExtResource("2_e1oc4")
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = SubResource("StyleBoxFlat_qi5yj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_e1oc4")
 theme_override_styles/focus = SubResource("StyleBoxFlat_fd3yg")
 placeholder_text = "Correo Electrónico"
 caret_blink = true
 
-[node name="Password" type="LineEdit" parent="PanelContainer/VBoxContainer2/Form/Fields"]
+[node name="ErrorLabel" type="Label" parent="PanelContainer/VBoxContainer2/Form/Fields/EmailContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("4_cnl32")
+theme_override_colors/font_color = Color(0.8901961, 0.29411766, 0.29411766, 1)
+theme_override_font_sizes/font_size = 26
+text = "Requerido"
+
+[node name="PasswordContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer2/Form/Fields"]
+layout_mode = 2
+
+[node name="Password" type="LineEdit" parent="PanelContainer/VBoxContainer2/Form/Fields/PasswordContainer"]
 layout_mode = 2
 focus_mode = 1
 theme_override_colors/font_color = Color(0.3882353, 0.21176471, 0.78039217, 1)
@@ -135,12 +202,25 @@ theme_override_colors/font_placeholder_color = Color(0.3882353, 0.21176471, 0.78
 theme_override_colors/caret_color = Color(0.27513075, 0.1305213, 0.5763956, 1)
 theme_override_fonts/font = ExtResource("2_e1oc4")
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = SubResource("StyleBoxFlat_qi5yj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7u67g")
 theme_override_styles/focus = SubResource("StyleBoxFlat_fd3yg")
 placeholder_text = "Contraseña"
+virtual_keyboard_type = 6
 caret_blink = true
+secret = true
 
-[node name="ConfirmPassword" type="LineEdit" parent="PanelContainer/VBoxContainer2/Form/Fields"]
+[node name="ErrorLabel" type="Label" parent="PanelContainer/VBoxContainer2/Form/Fields/PasswordContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("4_cnl32")
+theme_override_colors/font_color = Color(0.8901961, 0.29411766, 0.29411766, 1)
+theme_override_font_sizes/font_size = 26
+text = "Requerido"
+
+[node name="ConfirmPasswordContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer2/Form/Fields"]
+layout_mode = 2
+
+[node name="ConfirmPassword" type="LineEdit" parent="PanelContainer/VBoxContainer2/Form/Fields/ConfirmPasswordContainer"]
 layout_mode = 2
 focus_mode = 1
 theme_override_colors/font_color = Color(0.3882353, 0.21176471, 0.78039217, 1)
@@ -152,6 +232,15 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qi5yj")
 theme_override_styles/focus = SubResource("StyleBoxFlat_fd3yg")
 placeholder_text = "Confirmar contraseña"
 caret_blink = true
+secret = true
+
+[node name="ErrorLabel" type="Label" parent="PanelContainer/VBoxContainer2/Form/Fields/ConfirmPasswordContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("4_cnl32")
+theme_override_colors/font_color = Color(0.8901961, 0.29411766, 0.29411766, 1)
+theme_override_font_sizes/font_size = 26
+text = "Las contraseñas no coinciden"
 
 [node name="Buttons" type="VBoxContainer" parent="PanelContainer/VBoxContainer2/Form"]
 layout_mode = 2
