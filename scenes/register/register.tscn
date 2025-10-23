@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://cmwm7lnfbeeh2"]
+[gd_scene load_steps=15 format=3 uid="uid://cmwm7lnfbeeh2"]
 
 [ext_resource type="PackedScene" uid="uid://bgs038jmr8ivf" path="res://ui/components/labels/fracto_title.tscn" id="1_cttpy"]
 [ext_resource type="Script" uid="uid://d4d31ndk3ahtg" path="res://scenes/register/register.gd" id="1_e1oc4"]
 [ext_resource type="FontFile" uid="uid://bi7v6tsekvh83" path="res://assets/fredoka/static/Fredoka-SemiBold.ttf" id="2_e1oc4"]
 [ext_resource type="PackedScene" uid="uid://bf1t5p78ivl55" path="res://ui/components/buttons/button_custom.tscn" id="3_7u67g"]
 [ext_resource type="Theme" uid="uid://ck8qjw157esgd" path="res://ui/components/labels/text.tres" id="4_cnl32"]
+[ext_resource type="FontFile" uid="uid://b1qajf87wwgo7" path="res://assets/fredoka/static/Fredoka-Medium.ttf" id="5_7u67g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dgcck"]
 bg_color = Color(0.2627451, 0.13725491, 0.54509807, 1)
@@ -185,11 +186,14 @@ caret_blink = true
 
 [node name="ErrorLabel" type="Label" parent="PanelContainer/VBoxContainer2/Form/Fields/EmailContainer"]
 visible = false
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 theme = ExtResource("4_cnl32")
 theme_override_colors/font_color = Color(0.8901961, 0.29411766, 0.29411766, 1)
+theme_override_fonts/font = ExtResource("5_7u67g")
 theme_override_font_sizes/font_size = 26
-text = "Requerido"
+text = "El correo ingresado no es válido o ya está en uso"
+autowrap_mode = 2
 
 [node name="PasswordContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer2/Form/Fields"]
 layout_mode = 2
@@ -211,11 +215,14 @@ secret = true
 
 [node name="ErrorLabel" type="Label" parent="PanelContainer/VBoxContainer2/Form/Fields/PasswordContainer"]
 visible = false
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 theme = ExtResource("4_cnl32")
 theme_override_colors/font_color = Color(0.8901961, 0.29411766, 0.29411766, 1)
+theme_override_fonts/font = ExtResource("5_7u67g")
 theme_override_font_sizes/font_size = 26
-text = "Requerido"
+text = "La contraseña debe tener al menos 8 caracteres"
+autowrap_mode = 2
 
 [node name="ConfirmPasswordContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer2/Form/Fields"]
 layout_mode = 2
@@ -239,6 +246,7 @@ visible = false
 layout_mode = 2
 theme = ExtResource("4_cnl32")
 theme_override_colors/font_color = Color(0.8901961, 0.29411766, 0.29411766, 1)
+theme_override_fonts/font = ExtResource("5_7u67g")
 theme_override_font_sizes/font_size = 26
 text = "Las contraseñas no coinciden"
 
@@ -246,9 +254,21 @@ text = "Las contraseñas no coinciden"
 layout_mode = 2
 theme_override_constants/separation = 80
 
-[node name="Register" parent="PanelContainer/VBoxContainer2/Form/Buttons" instance=ExtResource("3_7u67g")]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer2/Form/Buttons"]
+layout_mode = 2
+
+[node name="Register" parent="PanelContainer/VBoxContainer2/Form/Buttons/VBoxContainer" instance=ExtResource("3_7u67g")]
 layout_mode = 2
 text = "Registrarse"
+
+[node name="ErrorLabel" type="Label" parent="PanelContainer/VBoxContainer2/Form/Buttons/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("4_cnl32")
+theme_override_colors/font_color = Color(0.8901961, 0.29411766, 0.29411766, 1)
+theme_override_fonts/font = ExtResource("5_7u67g")
+theme_override_font_sizes/font_size = 26
+text = "Error de conexión"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer2/Form/Buttons"]
 layout_mode = 2
@@ -272,5 +292,5 @@ text = "Inicia sesión"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
-[connection signal="pressed" from="PanelContainer/VBoxContainer2/Form/Buttons/Register" to="." method="_on_register_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer2/Form/Buttons/VBoxContainer/Register" to="." method="_on_register_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer2/Form/Buttons/HBoxContainer/Login" to="." method="_on_login_pressed"]

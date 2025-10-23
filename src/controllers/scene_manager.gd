@@ -37,4 +37,6 @@ func _deferred_change_scene(menu_scene):
 	current_scene.free()
 	current_scene = scenes[menu_scene].instantiate()
 	get_tree().root.add_child(current_scene)
+
+	
 	

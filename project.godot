@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 SceneManager="*res://src/controllers/scene_manager.gd"
 ConfigManager="*res://src/controllers/config_manager.gd"
 Global="*res://src/global.gd"
+InputValidator="*res://src/controllers/input_validator.gd"
 
 [display]
 
