@@ -250,6 +250,15 @@ theme_override_fonts/font = ExtResource("5_7u67g")
 theme_override_font_sizes/font_size = 26
 text = "Las contraseñas no coinciden"
 
+[node name="ErrorLabel" type="Label" parent="PanelContainer/VBoxContainer2/Form/Fields"]
+visible = false
+layout_mode = 2
+theme = ExtResource("4_cnl32")
+theme_override_colors/font_color = Color(0.8901961, 0.29411766, 0.29411766, 1)
+theme_override_fonts/font = ExtResource("5_7u67g")
+theme_override_font_sizes/font_size = 26
+text = "Error de conexión"
+
 [node name="Buttons" type="VBoxContainer" parent="PanelContainer/VBoxContainer2/Form"]
 layout_mode = 2
 theme_override_constants/separation = 80
@@ -260,15 +269,6 @@ layout_mode = 2
 [node name="Register" parent="PanelContainer/VBoxContainer2/Form/Buttons/VBoxContainer" instance=ExtResource("3_7u67g")]
 layout_mode = 2
 text = "Registrarse"
-
-[node name="ErrorLabel" type="Label" parent="PanelContainer/VBoxContainer2/Form/Buttons/VBoxContainer"]
-visible = false
-layout_mode = 2
-theme = ExtResource("4_cnl32")
-theme_override_colors/font_color = Color(0.8901961, 0.29411766, 0.29411766, 1)
-theme_override_fonts/font = ExtResource("5_7u67g")
-theme_override_font_sizes/font_size = 26
-text = "Error de conexión"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer2/Form/Buttons"]
 layout_mode = 2

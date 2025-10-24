@@ -1,6 +1,16 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://d2vo3s1vp6uk1"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://d2vo3s1vp6uk1"]
 
 [ext_resource type="FontFile" uid="uid://bi7v6tsekvh83" path="res://assets/fredoka/static/Fredoka-SemiBold.ttf" id="1_4ab4r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62ghs"]
+bg_color = Color(0.99607843, 0.654902, 0, 0.47058824)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.93333334, 0.36862746, 0, 0.14509805)
+shadow_size = 2
+shadow_offset = Vector2(0, 4)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ab4r"]
 bg_color = Color(0.99607843, 0.654902, 0, 1)
@@ -34,7 +44,7 @@ shadow_offset = Vector2(0, 4)
 
 [resource]
 Button/colors/font_color = Color(0.99607843, 0.9764706, 0.9019608, 1)
-Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0.78431374)
 Button/colors/font_focus_color = Color(0.99607843, 0.9764706, 0.9019608, 1)
 Button/colors/font_hover_color = Color(0.99607843, 0.9764706, 0.9019608, 1)
 Button/colors/font_hover_pressed_color = Color(0.99607843, 0.9764706, 0.9019608, 1)
@@ -52,6 +62,7 @@ Button/constants/icon_max_width = 0
 Button/constants/outline_size = 0
 Button/font_sizes/font_size = 48
 Button/fonts/font = ExtResource("1_4ab4r")
+Button/styles/disabled = SubResource("StyleBoxFlat_62ghs")
 Button/styles/focus = SubResource("StyleBoxFlat_4ab4r")
 Button/styles/hover = SubResource("StyleBoxFlat_4ab4r")
 Button/styles/normal = SubResource("StyleBoxFlat_efdnc")
