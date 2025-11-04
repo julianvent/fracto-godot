@@ -54,7 +54,7 @@ func _login():
 	}
 	var body = JSON.stringify(data)
 	var headers = ["Content-Type: application/json", "Accept: application/json"]
-	var url = "https://fracto-api.onrender.com/api/v1/auth/login"
+	var url = Routes.login_url
 	
 	var response = $HTTPRequest.request(url, headers, HTTPClient.METHOD_POST, body)
 	if response != OK:

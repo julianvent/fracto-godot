@@ -3,10 +3,17 @@ extends Control
 @export var numerator: int = 1
 @export var denominator: int = 2
 
+var original_fraction := {"numerator": 1, "denominator": 2}
+var reduced_fraction := {"numerator": 1, "denominator": 2}
+
 var preview = null
 var original_position = Vector2.ZERO
-
-func _ready():
+	
+func set_fraction(fraction):
+	original_fraction.numerator = int(fraction.numerator)
+	original_fraction.denominator = int(fraction.denominator)
+	
+	reduced_fraction = fraction.reduced
 	update_display()
 
 
@@ -27,8 +34,8 @@ func _notification(what: int):
 		print(get_parent())
 
 func update_display():
-	$VBoxContainer/Numerator.text = str(numerator)
-	$VBoxContainer/Denominator.text = str(denominator)
+	$VBoxContainer/Numerator.text = str(original_fraction.numerator)
+	$VBoxContainer/Denominator.text = str(original_fraction.denominator)
 	
 func return_to_original():
 	print(preview.global_position)
