@@ -8,6 +8,7 @@
 [node name="Identification" type="Node"]
 script = ExtResource("1_koct1")
 card_scene = ExtResource("4_lvvbe")
+slot_scene = ExtResource("4_n7gqa")
 
 [node name="BG" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -36,15 +37,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 120
 alignment = 1
-
-[node name="FractionSlot" parent="FractionSlots" instance=ExtResource("4_n7gqa")]
-layout_mode = 2
-
-[node name="FractionSlot2" parent="FractionSlots" instance=ExtResource("4_n7gqa")]
-layout_mode = 2
-
-[node name="FractionSlot3" parent="FractionSlots" instance=ExtResource("4_n7gqa")]
-layout_mode = 2
 
 [node name="FractionCards" type="HBoxContainer" parent="."]
 anchors_preset = 7

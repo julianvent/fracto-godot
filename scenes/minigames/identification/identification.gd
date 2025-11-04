@@ -1,8 +1,10 @@
 extends Node
 
 @export var card_scene: PackedScene
+@export var slot_scene: PackedScene
 
 @onready var fraction_cards = $FractionCards
+@onready var fraction_slots = $FractionSlots
 
 var generator: FractionGenerator
 
@@ -21,6 +23,13 @@ func _start_round():
 	rng.randomize()
 	var card_order = fractions.duplicate()
 	card_order.shuffle()
+	
+	for fraction in fractions:
+		print(fraction)
+		var slot = slot_scene.instantiate()
+		slot.set_fraction(fraction)
+		fraction_slots.add_child(slot)
+			
 	
 	for fraction in card_order:
 		var card = card_scene.instantiate()

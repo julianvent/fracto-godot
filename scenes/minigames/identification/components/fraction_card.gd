@@ -1,8 +1,5 @@
 extends Control
 
-@export var numerator: int = 1
-@export var denominator: int = 2
-
 var original_fraction := {"numerator": 1, "denominator": 2}
 var reduced_fraction := {"numerator": 1, "denominator": 2}
 
@@ -27,11 +24,6 @@ func _get_drag_data(at_position: Vector2):
 	
 	set_drag_preview(c)
 	return self
-
-func _notification(what: int):
-	if what == NOTIFICATION_DRAG_END:
-		print(to_string())
-		print(get_parent())
 
 func update_display():
 	$VBoxContainer/Numerator.text = str(original_fraction.numerator)
