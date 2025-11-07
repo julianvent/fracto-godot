@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwxrd7lewnk32"]
+[gd_scene load_steps=6 format=3 uid="uid://bwxrd7lewnk32"]
 
 [ext_resource type="Script" uid="uid://cr56p3rl7vv74" path="res://scenes/minigames/identification/identification.gd" id="1_koct1"]
 [ext_resource type="PackedScene" uid="uid://dpd8yv5leavbt" path="res://scenes/minigames/hud.tscn" id="2_q1cys"]
 [ext_resource type="PackedScene" uid="uid://ccxori2fj6nnj" path="res://scenes/minigames/identification/components/fraction_card.tscn" id="4_lvvbe"]
 [ext_resource type="PackedScene" uid="uid://dh1lnnvj8o8mt" path="res://scenes/minigames/identification/components/fraction_slot.tscn" id="4_n7gqa"]
+[ext_resource type="PackedScene" uid="uid://csx21dg687ers" path="res://scenes/minigames/identification/components/fraction_pizza.tscn" id="4_ofmiq"]
 
 [node name="Identification" type="Node"]
 script = ExtResource("1_koct1")
 card_scene = ExtResource("4_lvvbe")
 slot_scene = ExtResource("4_n7gqa")
+pizza_scene = ExtResource("4_ofmiq")
 
 [node name="BG" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -24,18 +26,16 @@ autostart = true
 [node name="HUD" parent="." instance=ExtResource("2_q1cys")]
 
 [node name="FractionSlots" type="VBoxContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -272.0
-offset_top = -388.0
-offset_right = -122.0
-offset_bottom = 272.0
+offset_top = -80.0
+offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 120
+size_flags_horizontal = 3
+theme_override_constants/separation = 40
 alignment = 1
 
 [node name="FractionCards" type="HBoxContainer" parent="."]
@@ -44,12 +44,11 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -100.0
-offset_top = -287.0
-offset_right = 100.0
-offset_bottom = -87.0
+offset_top = -72.0
+offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 0
+size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_constants/separation = 50
 alignment = 1

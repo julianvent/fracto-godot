@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://csx21dg687ers"]
+
+[ext_resource type="Script" uid="uid://bb7of2jen5uho" path="res://scenes/minigames/identification/components/fraction_pizza.gd" id="1_jwko5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwko5"]
+draw_center = false
+
+[node name="FractionPizza" type="PanelContainer"]
+custom_minimum_size = Vector2(250, 250)
+theme_override_styles/panel = SubResource("StyleBoxFlat_jwko5")
+script = ExtResource("1_jwko5")
+stroke_color = Color(0.72156864, 0.45490196, 0, 1)
+crust_color = Color(0.72156864, 0.45490196, 0, 1)
+fill_color = Color(0.99634105, 0.7275649, 0.41731146, 1)
