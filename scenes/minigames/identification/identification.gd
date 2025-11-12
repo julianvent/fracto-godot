@@ -1,11 +1,13 @@
 extends Node
 
+signal card_placed(correct)
+
 @export var card_scene: PackedScene
 @export var slot_scene: PackedScene
 @export var pizza_scene: PackedScene
 
 @onready var fraction_cards = $FractionCards
-@onready var fraction_slots = $FractionSlots
+@onready var fraction_slots = $FractionContainer/FractionSlots
 
 var generator: FractionGenerator
 
@@ -42,10 +44,13 @@ func _start_round():
 		fractionPizzaHBox.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 		fractionPizzaHBox.alignment = BoxContainer.ALIGNMENT_CENTER
 		
-		print(pizza.get_parent())
+		slot.connect("dropped_card", Callable(self, "_on_slot_dropped"))
 	
 	for fraction in card_order:
 		var card = card_scene.instantiate()
 		card.set_fraction(fraction)
 		fraction_cards.add_child(card)
 		
+		
+func _on_slot_dropped(card_node, correct):
+	emit_signal("card_placed", correct)

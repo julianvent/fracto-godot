@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://13wvkof0tfle"]
+
+[ext_resource type="Script" uid="uid://bura0rixp7baj" path="res://scenes/minigames/countdown/countdown.gd" id="1_oum23"]
+[ext_resource type="Theme" uid="uid://b8ceskc6kb8lj" path="res://ui/components/labels/fracto_title.tres" id="1_y54g8"]
+[ext_resource type="Theme" uid="uid://delr504llxavj" path="res://ui/components/labels/menu_title.tres" id="2_oum23"]
+
+[node name="Countdown" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oum23")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47058824, 0.3254902, 0.972549, 1)
+
+[node name="TickTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="Labels" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Caption" type="Label" parent="Labels"]
+layout_mode = 2
+theme = ExtResource("1_y54g8")
+theme_override_font_sizes/font_size = 80
+text = "¡Préparate!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Time" type="Label" parent="Labels"]
+layout_mode = 2
+theme = ExtResource("2_oum23")
+theme_override_font_sizes/font_size = 80
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="TickTimer" to="." method="_on_tick_timer_timeout"]

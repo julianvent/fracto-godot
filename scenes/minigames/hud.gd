@@ -4,5 +4,5 @@ func _ready():
 	update_timer()
 
 func update_timer():
-	$label.text = str(Global.seconds_left)
-	Global.seconds_left -= 1
+	$Time.text = str(Global.play_time)
+	Global.play_time -= 1

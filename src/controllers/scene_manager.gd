@@ -18,6 +18,7 @@ enum SCENES {
 	SESSION_CONFIG,
 	PLAYER_CONFIG,
 	MINIGAME_IDENTIFICATION,
+	GAME_MANAGER
 }
 
 var scenes = {
@@ -27,7 +28,8 @@ var scenes = {
 	SCENES.SESSION_MENU: preload("res://scenes/session_config/session_menu.tscn"),
 	SCENES.SESSION_CONFIG: preload("res://scenes/session_config/session_config.tscn"),
 	SCENES.PLAYER_CONFIG: preload("res://scenes/player_config/player_config.tscn"),
-	SCENES.MINIGAME_IDENTIFICATION: preload("res://scenes/minigames/identification/identification.tscn")
+	SCENES.MINIGAME_IDENTIFICATION: preload("res://scenes/minigames/identification/identification.tscn"),
+	SCENES.GAME_MANAGER: preload("res://scenes/minigames/game_manager.tscn"),
 }
 
 func change_scene(menu_scene):
