@@ -1,8 +1,7 @@
 extends CanvasLayer
 
 func _ready():
-	update_timer()
-
-func update_timer():
 	$Time.text = str(Global.play_time)
-	Global.play_time -= 1
+
+func update_timer(time_left):
+	$Time.text = str(time_left)

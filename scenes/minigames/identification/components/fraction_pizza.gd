@@ -33,8 +33,6 @@ func _draw_pizza():
 	var d = int(original_fraction.denominator)
 	var n = int(original_fraction.numerator)
 	
-	print(chosen_fraction)
-	
 	if chosen_fraction:
 		d = int(reduced_fraction.denominator)
 		n = int(reduced_fraction.numerator)

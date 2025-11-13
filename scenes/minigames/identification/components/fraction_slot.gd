@@ -35,9 +35,9 @@ func _drop_data(at_position: Vector2, data: Variant):
 		if correct:
 			card.place_in_slot(self)
 			_is_card_placed = true
-			emit_signal("dropped_card", card, true)
+			emit_signal("dropped_card", true)
 		else:
-			emit_signal("dropped_card", card, false)
+			emit_signal("dropped_card", false)
 
 
 	

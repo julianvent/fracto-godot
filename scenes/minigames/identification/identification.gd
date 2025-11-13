@@ -1,14 +1,20 @@
 extends Node
 
-signal card_placed(correct)
+signal update_points(points)
+signal game_finished()
 
 @export var card_scene: PackedScene
 @export var slot_scene: PackedScene
 @export var pizza_scene: PackedScene
+@export var cards_to_be_placed = 3
+@export var points_per_card = 150
+@export var replays = 3
 
 @onready var fraction_cards = $FractionCards
 @onready var fraction_slots = $FractionContainer/FractionSlots
 
+var placed_cards = 0
+var times_replayed = 0
 var generator: FractionGenerator
 
 func _ready():
@@ -20,6 +26,7 @@ func _on_tick_timer_timeout() -> void:
 	$HUD.update_timer()
 
 func _start_round():
+	times_replayed += 1
 	var fractions = generator.random_unique_even_fractions(3)
 	
 	var rng = RandomNumberGenerator.new()
@@ -28,7 +35,6 @@ func _start_round():
 	card_order.shuffle()
 	
 	for fraction in fractions:
-		print(fraction)
 		var slot = slot_scene.instantiate()
 		var pizza = pizza_scene.instantiate()
 		slot.set_fraction(fraction)
@@ -44,7 +50,7 @@ func _start_round():
 		fractionPizzaHBox.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 		fractionPizzaHBox.alignment = BoxContainer.ALIGNMENT_CENTER
 		
-		slot.connect("dropped_card", Callable(self, "_on_slot_dropped"))
+		slot.connect("dropped_card", Callable(self, "_on_card_placed"))
 	
 	for fraction in card_order:
 		var card = card_scene.instantiate()
@@ -52,5 +58,14 @@ func _start_round():
 		fraction_cards.add_child(card)
 		
 		
-func _on_slot_dropped(card_node, correct):
-	emit_signal("card_placed", correct)
+func _on_card_placed(is_correct):
+	if times_replayed == replays:
+		emit_signal("game_finished")
+	
+	if placed_cards == cards_to_be_placed:
+		_start_round()
+	
+	if is_correct:
+		placed_cards += 1
+		emit_signal("update_points", points_per_card)
+	
