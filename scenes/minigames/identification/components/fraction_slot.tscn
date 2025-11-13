@@ -14,7 +14,7 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [node name="FractionSlot" type="PanelContainer"]
-custom_minimum_size = Vector2(150, 140)
+custom_minimum_size = Vector2(165, 155)
 offset_right = 150.0
 offset_bottom = 140.0
 size_flags_horizontal = 4

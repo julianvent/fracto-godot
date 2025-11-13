@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="fracto"
-run/main_scene="uid://bbcf0c366mael"
+run/main_scene="uid://bhbm74gmelrpm"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
@@ -21,6 +21,7 @@ SceneManager="*res://src/controllers/scene_manager.gd"
 ConfigManager="*res://src/controllers/config_manager.gd"
 Global="*res://src/global.gd"
 InputValidator="*res://src/controllers/input_validator.gd"
+Routes="*res://src/utils/routes.gd"
 
 [display]
 

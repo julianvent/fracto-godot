@@ -79,7 +79,7 @@ func _register():
 	}
 	var body = JSON.stringify(data)
 	var headers = ["Content-Type: application/json", "Accept: application/json"]
-	var url = "https://fracto-api.onrender.com/api/v1/auth/register"
+	var url = Routes.signup_url
 	
 	var response = $HTTPRequest.request(url, headers, HTTPClient.METHOD_POST, body)
 	if response != OK:

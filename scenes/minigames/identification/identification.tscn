@@ -1,12 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwxrd7lewnk32"]
+[gd_scene load_steps=6 format=3 uid="uid://bwxrd7lewnk32"]
 
 [ext_resource type="Script" uid="uid://cr56p3rl7vv74" path="res://scenes/minigames/identification/identification.gd" id="1_koct1"]
-[ext_resource type="PackedScene" uid="uid://dpd8yv5leavbt" path="res://scenes/minigames/hud.tscn" id="2_q1cys"]
 [ext_resource type="PackedScene" uid="uid://ccxori2fj6nnj" path="res://scenes/minigames/identification/components/fraction_card.tscn" id="4_lvvbe"]
 [ext_resource type="PackedScene" uid="uid://dh1lnnvj8o8mt" path="res://scenes/minigames/identification/components/fraction_slot.tscn" id="4_n7gqa"]
+[ext_resource type="PackedScene" path="res://scenes/minigames/identification/components/fraction_pizza.tscn" id="4_ofmiq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lvvbe"]
+content_margin_left = 50.0
+content_margin_top = 75.0
+content_margin_right = 50.0
+content_margin_bottom = 75.0
+bg_color = Color(0, 0, 0, 0.3882353)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [node name="Identification" type="Node"]
 script = ExtResource("1_koct1")
+card_scene = ExtResource("4_lvvbe")
+slot_scene = ExtResource("4_n7gqa")
+pizza_scene = ExtResource("4_ofmiq")
 
 [node name="BG" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -16,34 +30,25 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.47058824, 0.3254902, 0.972549, 1)
 
-[node name="TickTimer" type="Timer" parent="."]
-autostart = true
-
-[node name="HUD" parent="." instance=ExtResource("2_q1cys")]
-
-[node name="FractionSlots" type="VBoxContainer" parent="."]
+[node name="FractionContainer" type="PanelContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -272.0
-offset_top = -388.0
-offset_right = -122.0
-offset_bottom = 272.0
+offset_left = -50.0
+offset_top = -156.0
+offset_right = 50.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 120
+theme_override_styles/panel = SubResource("StyleBoxFlat_lvvbe")
+
+[node name="FractionSlots" type="VBoxContainer" parent="FractionContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 40
 alignment = 1
-
-[node name="FractionSlot" parent="FractionSlots" instance=ExtResource("4_n7gqa")]
-layout_mode = 2
-
-[node name="FractionSlot2" parent="FractionSlots" instance=ExtResource("4_n7gqa")]
-layout_mode = 2
-
-[node name="FractionSlot3" parent="FractionSlots" instance=ExtResource("4_n7gqa")]
-layout_mode = 2
 
 [node name="FractionCards" type="HBoxContainer" parent="."]
 anchors_preset = 7
@@ -51,20 +56,11 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -100.0
-offset_top = -287.0
-offset_right = 100.0
-offset_bottom = -87.0
+offset_top = -72.0
+offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 0
+size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_constants/separation = 50
 alignment = 1
-
-[node name="FractionCard" parent="FractionCards" instance=ExtResource("4_lvvbe")]
-layout_mode = 2
-
-[node name="FractionCard2" parent="FractionCards" instance=ExtResource("4_lvvbe")]
-layout_mode = 2
-
-[connection signal="timeout" from="TickTimer" to="." method="_on_tick_timer_timeout"]

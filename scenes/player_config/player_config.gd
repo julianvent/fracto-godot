@@ -27,4 +27,4 @@ func _on_play_pressed():
 	alias = $Alias.text
 	Global.player_name = alias
 	
-	SceneManager.change_scene(SceneManager.SCENES.MINIGAME_IDENTIFICATION)
+	SceneManager.change_scene(SceneManager.SCENES.GAME_MANAGER)

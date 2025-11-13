@@ -6,14 +6,27 @@
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_bp4ke")
 
-[node name="label" type="Label" parent="."]
+[node name="Time" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_top = 29.0
-offset_right = 20.0
-offset_bottom = 103.0
+offset_left = -15.0
+offset_top = 59.0
+offset_right = 25.0
+offset_bottom = 133.0
+grow_horizontal = 2
+theme = ExtResource("2_dd50m")
+text = "0"
+horizontal_alignment = 1
+
+[node name="Points" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 213.0
+offset_top = 59.0
+offset_right = 253.0
+offset_bottom = 133.0
 grow_horizontal = 2
 theme = ExtResource("2_dd50m")
 text = "0"
