@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhbm74gmelrpm"]
+[gd_scene load_steps=5 format=3 uid="uid://bhbm74gmelrpm"]
 
 [ext_resource type="Script" uid="uid://brvwlg83hjt4l" path="res://scenes/minigames/game_manager.gd" id="1_d2yeb"]
 [ext_resource type="PackedScene" uid="uid://13wvkof0tfle" path="res://scenes/minigames/countdown/countdown.tscn" id="2_233sl"]
+[ext_resource type="PackedScene" uid="uid://bwxrd7lewnk32" path="res://scenes/minigames/identification/identification.tscn" id="3_7p310"]
 [ext_resource type="PackedScene" uid="uid://dpd8yv5leavbt" path="res://scenes/minigames/hud.tscn" id="4_wsxsf"]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_d2yeb")
 countdown_scene = ExtResource("2_233sl")
+identification_scene = ExtResource("3_7p310")
 
 [node name="BG" type="ColorRect" parent="."]
 anchors_preset = 15

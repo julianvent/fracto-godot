@@ -4,7 +4,7 @@ extends Node
 @export var slot_scene: PackedScene
 @export var pizza_scene: PackedScene
 @export var cards_to_be_placed = 3
-@export var points_per_card = 150
+@export var points_per_card = 10
 @export var replays = 3
 
 @onready var fraction_cards = $FractionCards

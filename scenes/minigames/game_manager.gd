@@ -32,7 +32,8 @@ func _load_game():
 	HUD.show()
 	timer.start()
 	
-	var game_scene = games[current_game].scene.instantiate()
+	var game = games[current_game]
+	var game_scene = game.scene.instantiate()
 	current_scene.add_child(game_scene)
 	game_scene.connect("update_points", Callable(self, "_update_points"))
 	game_scene.connect("game_finished", Callable(self,"_replay_game"))
