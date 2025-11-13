@@ -25,7 +25,7 @@ func _ready():
 		http.request_completed.connect(_http_request_completed)
 	http.timeout = 10.0
 	
-	if Global.auth_token != "":
+	if Global.auth_token != "" and Global.auth_user.size() > 0:
 		SceneManager.change_scene(SceneManager.SCENES.MAIN_MENU)
 
 
