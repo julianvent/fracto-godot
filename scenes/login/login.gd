@@ -5,6 +5,8 @@ extends Control
 @onready var login_button = $PanelContainer/VBoxContainer2/Form/Buttons/VBoxContainer/Login
 @onready var register_button = $PanelContainer/VBoxContainer2/Form/Buttons/HBoxContainer/Register
 @onready var login_error_label = $PanelContainer/VBoxContainer2/Form/Fields/ErrorLabel
+@onready var http := $HTTPRequest
+
 
 const ERRORS_RESPONSE = "errors"
 const MESSAGE_RESPONSE = "message"
@@ -18,6 +20,13 @@ var normal_theme = null
 func _ready():
 	error_theme = load("res://scenes/register/line_edit_error.tres")
 	normal_theme = load("res://scenes/register/line_edit_normal.tres")
+	
+	if not http.request_completed.is_connected(_http_request_completed):
+		http.request_completed.connect(_http_request_completed)
+	http.timeout = 10.0
+	
+	if Global.auth_token != "":
+		SceneManager.change_scene(SceneManager.SCENES.MAIN_MENU)
 
 
 func _on_register_pressed():
@@ -44,9 +53,8 @@ func _login():
 	login_button.text = "Iniciando sesión..."
 	login_button.disabled = true
 	register_button.disabled = true
+	login_error_label.visible = false
 	
-	$HTTPRequest.request_completed.connect(_http_request_completed)
-	$HTTPRequest.timeout = 10.0
 	
 	var data = {
 		"email": email,
@@ -56,28 +64,51 @@ func _login():
 	var headers = ["Content-Type: application/json", "Accept: application/json"]
 	var url = Routes.login_url
 	
-	var response = $HTTPRequest.request(url, headers, HTTPClient.METHOD_POST, body)
+	var response = http.request(url, headers, HTTPClient.METHOD_POST, body)
 	if response != OK:
+		login_error_label.visible = true
 		login_error_label.text = "Error de conexión"
 		push_error("An error occurred in the HTTP request.")
+		_enable_buttons()
 
 
 func _http_request_completed(result, response_code, headers, body):
 	var json = JSON.new()
-	json.parse(body.get_string_from_utf8())
-	var response = json.get_data()
+	var parse_result := json.parse(body.get_string_from_utf8())
+	if parse_result != OK:
+		login_error_label.visible = true
+		login_error_label.text = "Respuesta inválida del servidor"
+		_enable_buttons()
+		return
+		
+	var response: Dictionary = json.get_data()
 	print(response_code, response)
 	
-	if response:
-		login_error_label.visible = response.has(ERRORS_RESPONSE) or response.has(MESSAGE_RESPONSE)
-		login_error_label.text = "Credenciales inválidas"
-	else:
-		login_error_label.visible = true
-		login_error_label.text = "Error de conexión"
-	_enable_buttons()
-	
 	if response_code == HTTPClient.RESPONSE_OK:
+		if response.has("token"):
+			var token = str(response["token"])
+			var user: Dictionary = response["user"] if response.has("user") else {}
+			Global.set_auth_session(user, token)
+
+		login_error_label.visible = false
+		_enable_buttons()
 		SceneManager.change_scene(SceneManager.SCENES.MAIN_MENU)
+		return
+
+		
+	login_error_label.visible = true
+	
+	if response_code == HTTPClient.RESPONSE_UNAUTHORIZED:
+		# 401 → credenciales inválidas
+		login_error_label.text = "Credenciales inválidas"
+	elif response.has(MESSAGE_RESPONSE):
+		# Si la API manda un 'message', lo mostramos
+		login_error_label.text = str(response[MESSAGE_RESPONSE])
+	else:
+		# Mensaje genérico por si acaso
+		login_error_label.text = "Error de conexión (" + str(response_code) + ")"
+	
+	_enable_buttons()
 
 
 func _enable_buttons():
