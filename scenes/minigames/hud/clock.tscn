@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgpj7hbxmpc72"]
+
+[ext_resource type="Script" uid="uid://c3euyuhw14t03" path="res://scenes/minigames/hud/clock.gd" id="1_4fnip"]
+[ext_resource type="Texture2D" uid="uid://w18rhmdkeria" path="res://assets/Group 14.svg" id="1_tb7yb"]
+[ext_resource type="Theme" uid="uid://delr504llxavj" path="res://ui/components/labels/menu_title.tres" id="2_r1sa4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tb7yb"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1sa4"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.15686275, 0.60784316, 0.8901961, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Clock" type="PanelContainer"]
+offset_right = 100.0
+offset_bottom = 108.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tb7yb")
+script = ExtResource("1_4fnip")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = -27
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 2
+texture = ExtResource("1_tb7yb")
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_r1sa4")
+
+[node name="Time" type="Label" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme = ExtResource("2_r1sa4")
+theme_override_colors/font_shadow_color = Color(0.3372549, 0.15686275, 0.96862745, 0)
+theme_override_font_sizes/font_size = 28
+text = "120"
+horizontal_alignment = 1
+vertical_alignment = 1

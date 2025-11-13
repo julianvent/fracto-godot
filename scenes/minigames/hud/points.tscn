@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwsrb7f3fle3m"]
+
+[ext_resource type="Theme" uid="uid://delr504llxavj" path="res://ui/components/labels/menu_title.tres" id="1_ibfba"]
+[ext_resource type="Script" uid="uid://c5rc7scl7ocy1" path="res://scenes/minigames/hud/points.gd" id="1_rvneh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvneh"]
+bg_color = Color(1, 0.8509804, 0.23137255, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+shadow_color = Color(1, 0.7607843, 0.14117648, 0.49411765)
+shadow_size = 1
+shadow_offset = Vector2(0, 2)
+
+[node name="Points" type="PanelContainer"]
+custom_minimum_size = Vector2(120, 120)
+theme_override_styles/panel = SubResource("StyleBoxFlat_rvneh")
+script = ExtResource("1_rvneh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Points" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ibfba")
+theme_override_colors/font_color = Color(0.15686275, 0.60784316, 0.8901961, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ibfba")
+theme_override_colors/font_color = Color(0.15686275, 0.60784316, 0.8901961, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 24
+text = "pts"
+horizontal_alignment = 1

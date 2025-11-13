@@ -1,33 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpd8yv5leavbt"]
+[gd_scene load_steps=4 format=3 uid="uid://dpd8yv5leavbt"]
 
 [ext_resource type="Script" uid="uid://bc1qtrkfdhjdp" path="res://scenes/minigames/hud.gd" id="1_bp4ke"]
-[ext_resource type="Theme" uid="uid://delr504llxavj" path="res://ui/components/labels/menu_title.tres" id="2_dd50m"]
+[ext_resource type="PackedScene" uid="uid://cgpj7hbxmpc72" path="res://scenes/minigames/hud/clock.tscn" id="2_ka24q"]
+[ext_resource type="PackedScene" uid="uid://bwsrb7f3fle3m" path="res://scenes/minigames/hud/points.tscn" id="3_ka24q"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_bp4ke")
 
-[node name="Time" type="Label" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -15.0
-offset_top = 59.0
-offset_right = 25.0
-offset_bottom = 133.0
+offset_left = 27.0
+offset_top = 31.0
+offset_right = 261.0
+offset_bottom = 139.0
 grow_horizontal = 2
-theme = ExtResource("2_dd50m")
-text = "0"
-horizontal_alignment = 1
+theme_override_constants/separation = 100
 
-[node name="Points" type="Label" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 213.0
-offset_top = 59.0
-offset_right = 253.0
-offset_bottom = 133.0
-grow_horizontal = 2
-theme = ExtResource("2_dd50m")
-text = "0"
-horizontal_alignment = 1
+[node name="Clock" parent="HBoxContainer" instance=ExtResource("2_ka24q")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Points" parent="HBoxContainer/VBoxContainer" instance=ExtResource("3_ka24q")]
+layout_mode = 2

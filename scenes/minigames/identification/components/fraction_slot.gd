@@ -38,6 +38,3 @@ func _drop_data(at_position: Vector2, data: Variant):
 			emit_signal("dropped_card", true)
 		else:
 			emit_signal("dropped_card", false)
-
-
-	
