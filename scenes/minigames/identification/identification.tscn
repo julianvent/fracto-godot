@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cr56p3rl7vv74" path="res://scenes/minigames/identification/identification.gd" id="1_koct1"]
 [ext_resource type="PackedScene" uid="uid://ccxori2fj6nnj" path="res://scenes/minigames/identification/components/fraction_card.tscn" id="4_lvvbe"]
 [ext_resource type="PackedScene" uid="uid://dh1lnnvj8o8mt" path="res://scenes/minigames/identification/components/fraction_slot.tscn" id="4_n7gqa"]
-[ext_resource type="PackedScene" path="res://scenes/minigames/identification/components/fraction_pizza.tscn" id="4_ofmiq"]
+[ext_resource type="PackedScene" uid="uid://csx21dg687ers" path="res://scenes/minigames/identification/components/fraction_pizza.tscn" id="4_ofmiq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lvvbe"]
 content_margin_left = 50.0

@@ -1,8 +1,5 @@
 extends Node
 
-signal update_points(points)
-signal game_finished()
-
 @export var card_scene: PackedScene
 @export var slot_scene: PackedScene
 @export var pizza_scene: PackedScene
@@ -13,9 +10,12 @@ signal game_finished()
 @onready var fraction_cards = $FractionCards
 @onready var fraction_slots = $FractionContainer/FractionSlots
 
-var placed_cards = 0
-var times_replayed = 0
+@onready var placed_cards = 0
+@onready var times_replayed = 0
 var generator: FractionGenerator
+
+signal update_points(points)
+signal game_finished
 
 func _ready():
 	generator = FractionGenerator.new()
@@ -39,7 +39,6 @@ func _start_round():
 		var pizza = pizza_scene.instantiate()
 		slot.set_fraction(fraction)
 		pizza.set_fraction(fraction)
-		pizza.size = Vector2(250.0, 250.0)
 		
 		var fractionPizzaHBox = HBoxContainer.new()
 		fractionPizzaHBox.add_theme_constant_override("separation", 150)
@@ -59,13 +58,10 @@ func _start_round():
 		
 		
 func _on_card_placed(is_correct):
-	if times_replayed == replays:
-		emit_signal("game_finished")
-	
-	if placed_cards == cards_to_be_placed:
-		_start_round()
-	
 	if is_correct:
 		placed_cards += 1
 		emit_signal("update_points", points_per_card)
+		
+	if placed_cards == cards_to_be_placed:
+		emit_signal("game_finished")
 	
