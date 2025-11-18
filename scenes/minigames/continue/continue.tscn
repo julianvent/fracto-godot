@@ -1,0 +1,156 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3ofchpw3igp"]
+
+[ext_resource type="Theme" uid="uid://delr504llxavj" path="res://ui/components/labels/menu_title.tres" id="1_4jysd"]
+[ext_resource type="Texture2D" uid="uid://cntf5jubu6gqj" path="res://assets/Star.svg" id="2_ytb1m"]
+[ext_resource type="PackedScene" uid="uid://bf1t5p78ivl55" path="res://ui/components/buttons/button_custom.tscn" id="3_ytb1m"]
+
+[node name="Continue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47058824, 0.3254902, 0.972549, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.5
+offset_top = -157.0
+offset_right = 270.5
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_4jysd")
+theme_override_font_sizes/font_size = 120
+text = "¡Correcto!"
+
+[node name="Star1" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.99997
+offset_top = -343.0
+offset_right = 115.00003
+offset_bottom = -193.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.15707964
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_ytb1m")
+
+[node name="Star2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -276.0
+offset_top = -299.0
+offset_right = -123.0
+offset_bottom = -149.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.3700098
+texture = ExtResource("2_ytb1m")
+
+[node name="Star3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 142.0
+offset_top = -384.0
+offset_right = 295.0
+offset_bottom = -234.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.30717796
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_ytb1m")
+
+[node name="Star4" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.99997
+offset_top = 71.0
+offset_right = 130.00003
+offset_bottom = 221.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.017453292
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ytb1m")
+
+[node name="Star5" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.00002
+offset_top = 34.00006
+offset_right = -77.0
+offset_bottom = 184.00006
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.15707964
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_ytb1m")
+
+[node name="Star6" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 135.00006
+offset_top = 32.00006
+offset_right = 288.00006
+offset_bottom = 182.00006
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.101229094
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_ytb1m")
+
+[node name="ButtonCustom" parent="." instance=ExtResource("3_ytb1m")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 276.0
+offset_right = 250.0
+offset_bottom = 361.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Continuar
+"
