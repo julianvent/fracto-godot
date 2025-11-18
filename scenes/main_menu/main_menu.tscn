@@ -104,7 +104,14 @@ layout_mode = 2
 theme = ExtResource("6_3ovsr")
 text = "Salir"
 
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+ok_button_text = "Sí"
+cancel_button_text = "Cancelar"
+
+[node name="LogoutHTTPRequest" type="HTTPRequest" parent="."]
+
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="PanelContainer/MenuButtons/Stats" to="." method="_on_stats_pressed"]
 [connection signal="pressed" from="PanelContainer/MenuButtons/About" to="." method="_on_about_pressed"]
 [connection signal="pressed" from="PanelContainer/MenuButtons/Exit" to="." method="_on_exit_pressed"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]
