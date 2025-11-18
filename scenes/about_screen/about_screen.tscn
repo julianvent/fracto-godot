@@ -1,0 +1,99 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpwy1wjm5xx4q"]
+
+[ext_resource type="Script" uid="uid://dep0im8gaek4l" path="res://scenes/about_screen/about_screen.gd" id="1_37tjc"]
+[ext_resource type="FontFile" uid="uid://bgwi7agii3msr" path="res://assets/fredoka/static/Fredoka-Bold.ttf" id="2_ea4yj"]
+[ext_resource type="StyleBox" uid="uid://3l653hvj06w3" path="res://ui/components/panel/panel.tres" id="3_6g4n7"]
+[ext_resource type="FontFile" uid="uid://cgh74yayoq5sp" path="res://assets/fredoka/static/Fredoka-Light.ttf" id="4_23sru"]
+[ext_resource type="Theme" uid="uid://bulw0ba8v1e06" path="res://ui/components/buttons/button_custom_purple.tres" id="5_rk7gp"]
+
+[node name="AboutScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_37tjc")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47058824, 0.3254902, 0.972549, 1)
+
+[node name="AboutTitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -554.0
+offset_right = 258.0
+offset_bottom = -475.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_ea4yj")
+theme_override_font_sizes/font_size = 60
+text = "Acerca de "
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = -415.0
+offset_right = 290.0
+offset_bottom = 385.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_6g4n7")
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("4_23sru")
+theme_override_font_sizes/font_size = 20
+text = "FRACTO es una aplicación educativa desarrollada por estudiantes de Ingeniería de Software de la Universidad Veracruzana, diseñada para que niñas y niños de primaria aprendan fracciones de forma divertida a través de minijuegos interactivos.
+Cada partida ayuda a reforzar habilidades matemáticas como suma, resta y equivalencias de fracciones, fomentando el aprendizaje activo mediante retos dinámicos, coloridos y accesibles sin necesidad de conexión a internet.
+El proyecto forma parte de las Prácticas Profesionales dentro del marco de la metodología ISO/IEC 29110, promoviendo el desarrollo de software con estándares de calidad, trabajo en equipo y responsabilidad social educativa.
+
+Créditos y Derechos de Autor
+Desarrollo y Diseño: Joseph Javier Avendaño Rodríguez, Héctor Adrian Mateu Arellano, Jose Julian Ventura Uscanga.
+Supervisión académica: Universidad Veracruzana, Facultad de Ingeniería, Campus Coatzacoalcos.
+
+Derechos Reservados © 2025 El contenido, diseño y material visual de FRACTO son propiedad intelectual de sus autores y solo podrán ser usados con fines educativos y de demostración."
+autowrap_mode = 2
+
+[node name="Button" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 438.0
+offset_right = 250.0
+offset_bottom = 523.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Back" type="Button" parent="Button"]
+custom_minimum_size = Vector2(500, 85)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme = ExtResource("5_rk7gp")
+theme_override_fonts/font = ExtResource("2_ea4yj")
+text = "Volver"
+
+[connection signal="pressed" from="Button/Back" to="." method="_on_button_pressed"]

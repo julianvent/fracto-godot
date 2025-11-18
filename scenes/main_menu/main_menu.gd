@@ -20,7 +20,7 @@ func _on_stats_pressed() -> void:
 
 
 func _on_about_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/about_screen/about_screen.tscn")
 
 
 func _on_exit_pressed() -> void:
