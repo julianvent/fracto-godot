@@ -24,7 +24,9 @@ var games := []
 func _ready() -> void:
 	games = [
 		{"scene": identification_scene, "replays": identification_replay},
+		{"scene": identification_scene, "replays": identification_replay},
 	]
+	time_left = Global.play_time
 	_reset_for_new_run()
 	_start_game()
 
@@ -42,6 +44,7 @@ func _clear_current_scene_children():
 	for child in current_scene.get_children():
 		child.queue_free()
 	await get_tree().process_frame
+
 
 
 # --- game flow ---
@@ -72,7 +75,6 @@ func _load_game():
 	
 
 func _reset_timer_and_hud() -> void:
-	time_left = Global.play_time
 	timer.start()
 	HUD.update_timer(time_left)
 	HUD.update_points(points)
@@ -92,6 +94,7 @@ func _on_tick_timer_timeout() -> void:
 
 func _on_game_finished():
 	timer.stop()
+	await get_tree().create_timer(1).timeout
 	state = GameState.REPLAYING
 	
 	_clear_current_scene_children()
@@ -104,14 +107,15 @@ func _on_game_finished():
 		times_replayed = 0
 		current_game += 1
 		if current_game >= games.size():
-			# _on_all_games_finished()
-			_show_continue()
+			_on_all_games_finished()
 		else:
-			_start_game()	
+			_show_continue()	
+
 
 func _on_all_games_finished():
 	state = GameState.FINISHED
 	_start_game()
+
 
 func _show_continue():
 	state = GameState.CONTINUE
@@ -119,3 +123,8 @@ func _show_continue():
 	_clear_current_scene_children()
 	var continue_sc = continue_scene.instantiate()
 	current_scene.add_child(continue_sc)
+	continue_sc.connect("on_continue", Callable(self, "_on_continue"), CONNECT_ONE_SHOT)
+
+
+func _on_continue():
+	_start_game()
