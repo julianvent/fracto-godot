@@ -57,7 +57,7 @@ func _start_round():
 		fraction_cards.add_child(card)
 		
 		
-func _on_card_placed(card, is_correct):
+func _on_card_placed(is_correct):
 	if is_correct:
 		placed_cards += 1
 		emit_signal("update_points", points_per_card)
