@@ -3,6 +3,7 @@ extends Node
 @export var countdown_scene: PackedScene
 @export var identification_scene: PackedScene
 @export var continue_scene: PackedScene
+@export var stats_scene: PackedScene
 @export var identification_replay = 3
 
 @onready var current_scene = $CurrentScene
@@ -148,4 +149,8 @@ func _on_continue():
 	
 	
 func _show_stats():
-	SceneManager.change_scene(SceneManager.SCENES.PLAYER_CONFIG)
+	state = GameState.FINISHED
+	HUD.hide()
+	_clear_current_scene_children()
+	var stats_sc = continue_scene.instantiate()
+	current_scene.add_child(stats_sc)
