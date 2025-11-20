@@ -18,6 +18,7 @@ var time_left: int
 var times_replayed: int = 0
 var current_game = 0
 var points = 0
+var streak = 0
 
 var games := []
 	
@@ -72,6 +73,7 @@ func _load_game():
 	current_scene.add_child(game_scene)
 	game_scene.connect("game_finished", Callable(self,"_on_game_finished"), CONNECT_ONE_SHOT)
 	game_scene.connect("update_points", Callable(self, "_update_points"))
+	game_scene.connect("update_streak", Callable(self, "_update_streak"))
 	
 
 func _reset_timer_and_hud() -> void:
@@ -80,20 +82,35 @@ func _reset_timer_and_hud() -> void:
 	HUD.update_points(points)
 
 	
-func _update_points(pointsGained):
-	points += pointsGained
+func _update_points(points_gained):
+	points += points_gained
 	HUD.update_points(points)
+	HUD.add_points(points_gained)
+	
+	
+func _update_streak(reset):
+	if reset:
+		streak = 0
+	else:
+		streak += 1
+	HUD.update_streak(streak)
 
 
 func _on_tick_timer_timeout() -> void:
 	time_left -= 1
 	HUD.update_timer(time_left)
+	
 	if time_left <= 0:
+		await get_tree().create_timer(1).timeout
 		_on_game_finished()
 		
 
 func _on_game_finished():
 	timer.stop()
+	if time_left <= 0:
+		_on_all_games_finished()
+		return
+		
 	await get_tree().create_timer(1).timeout
 	state = GameState.REPLAYING
 	
@@ -109,12 +126,12 @@ func _on_game_finished():
 		if current_game >= games.size():
 			_on_all_games_finished()
 		else:
-			_show_continue()	
+			_show_continue()
 
 
 func _on_all_games_finished():
 	state = GameState.FINISHED
-	_start_game()
+	_show_stats()
 
 
 func _show_continue():
@@ -128,3 +145,7 @@ func _show_continue():
 
 func _on_continue():
 	_start_game()
+	
+	
+func _show_stats():
+	SceneManager.change_scene(SceneManager.SCENES.PLAYER_CONFIG)

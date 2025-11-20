@@ -8,14 +8,14 @@ func _ready() -> void:
 	modulate.a = 1.0
 	
 
-func play(points, local_pos):
+func play(points, local_pos, distance = move_distance):
 	text = "+" + str(points)
 	
-	position = local_pos - Vector2(0, 40)
+	position = local_pos - Vector2(0, distance)
 	
 	var t = create_tween()
 	var start_y = position.y
-	var end_y = start_y - move_distance
+	var end_y = start_y - distance
 	
 	t.tween_property(self, "position:y", end_y, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	t.tween_property(self, "modulate:a", 0.0, duration)

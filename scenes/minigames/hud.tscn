@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpd8yv5leavbt"]
+[gd_scene load_steps=5 format=3 uid="uid://dpd8yv5leavbt"]
 
 [ext_resource type="Script" uid="uid://bc1qtrkfdhjdp" path="res://scenes/minigames/hud.gd" id="1_bp4ke"]
+[ext_resource type="PackedScene" uid="uid://dsludsnpnox4t" path="res://scenes/minigames/hud/streak.tscn" id="2_ire6m"]
 [ext_resource type="PackedScene" uid="uid://cgpj7hbxmpc72" path="res://scenes/minigames/hud/clock.tscn" id="2_ka24q"]
 [ext_resource type="PackedScene" uid="uid://bwsrb7f3fle3m" path="res://scenes/minigames/hud/points.tscn" id="3_ka24q"]
 
@@ -11,18 +12,19 @@ script = ExtResource("1_bp4ke")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -21.0
-offset_top = 61.0
-offset_right = 309.0
-offset_bottom = 181.0
+offset_left = -102.0
+offset_top = 71.0
+offset_right = 323.0
+offset_bottom = 191.0
 grow_horizontal = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Streak" parent="HBoxContainer" instance=ExtResource("2_ire6m")]
+layout_mode = 2
+
+[node name="Points" parent="HBoxContainer" instance=ExtResource("3_ka24q")]
+layout_mode = 2
 
 [node name="Clock" parent="HBoxContainer" instance=ExtResource("2_ka24q")]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="Points" parent="HBoxContainer/VBoxContainer" instance=ExtResource("3_ka24q")]
 layout_mode = 2

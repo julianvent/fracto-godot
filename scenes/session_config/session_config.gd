@@ -48,6 +48,7 @@ func _on_save_pressed():
 		return
 	
 	ConfigManager.save_session_config(school, group, minutes, seconds)
+	Global.load_play_time()
 	SceneManager.change_scene(SceneManager.SCENES.SESSION_MENU)
 
 func _is_input_empty(error_label, text):

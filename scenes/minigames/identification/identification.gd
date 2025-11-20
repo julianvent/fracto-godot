@@ -15,6 +15,7 @@ extends Node
 var generator: FractionGenerator
 
 signal update_points(points)
+signal update_streak(reset)
 signal game_finished
 
 func _ready():
@@ -61,6 +62,8 @@ func _on_card_placed(is_correct):
 	if is_correct:
 		placed_cards += 1
 		emit_signal("update_points", points_per_card)
+	
+	emit_signal("update_streak", !is_correct)
 		
 	if placed_cards == cards_to_be_placed:
 		emit_signal("game_finished")

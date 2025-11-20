@@ -58,3 +58,11 @@ func _load_auth_session() -> void:
 
 	if auth_user.has("name"):
 		player_name = str(auth_user["name"])
+		
+		
+func load_play_time():
+	ConfigManager.load_config()
+	var config = ConfigManager.config 
+	var minutes = config.get_value(ConfigManager.SESSION_SECTION, "minutes").to_int()
+	var seconds = config.get_value(ConfigManager.SESSION_SECTION, "seconds").to_int()
+	play_time = minutes * 60 + seconds
