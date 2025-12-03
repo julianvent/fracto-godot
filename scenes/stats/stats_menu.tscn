@@ -1,0 +1,108 @@
+[gd_scene load_steps=5 format=3 uid="uid://58oa84qvy28r"]
+
+[ext_resource type="Script" uid="uid://c0i7jnjko0qm6" path="res://scenes/stats/stats_menu.gd" id="1_2epcr"]
+[ext_resource type="FontFile" uid="uid://bi7v6tsekvh83" path="res://assets/fredoka/static/Fredoka-SemiBold.ttf" id="2_rm7dd"]
+[ext_resource type="Theme" uid="uid://bulw0ba8v1e06" path="res://ui/components/buttons/button_custom_purple.tres" id="3_pyam8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rm7dd"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.19607843)
+shadow_size = 2
+shadow_offset = Vector2(0, 4)
+
+[node name="StatsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2epcr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47058824, 0.3254902, 0.972549, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="MainVBox" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/MainVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0.3372549, 0.15686275, 0.96862745, 1)
+theme_override_fonts/font = ExtResource("2_rm7dd")
+theme_override_font_sizes/font_size = 60
+text = "Estadísticas"
+
+[node name="FiltersHBox" type="HBoxContainer" parent="MarginContainer/MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="FilterByDateButton" type="Button" parent="MarginContainer/MainVBox/FiltersHBox"]
+custom_minimum_size = Vector2(180, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.24313726, 0.20392157, 0.48235294, 1)
+theme_override_colors/font_pressed_color = Color(0.24313726, 0.20392157, 0.48235294, 1)
+theme_override_colors/font_hover_color = Color(0.24313726, 0.20392157, 0.48235294, 1)
+theme_override_fonts/font = ExtResource("2_rm7dd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_rm7dd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rm7dd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rm7dd")
+text = "Fecha"
+
+[node name="FilterBySchoolButton" type="Button" parent="MarginContainer/MainVBox/FiltersHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.24313726, 0.20392157, 0.48235294, 1)
+theme_override_colors/font_pressed_color = Color(0.24313726, 0.20392157, 0.48235294, 1)
+theme_override_colors/font_hover_color = Color(0.24313726, 0.20392157, 0.48235294, 1)
+theme_override_fonts/font = ExtResource("2_rm7dd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_rm7dd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rm7dd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rm7dd")
+text = "Escuela"
+
+[node name="SessionsScroll" type="ScrollContainer" parent="MarginContainer/MainVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SessionsList" type="VBoxContainer" parent="MarginContainer/MainVBox/SessionsScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+
+[node name="BackButton" type="Button" parent="MarginContainer/MainVBox"]
+custom_minimum_size = Vector2(500, 85)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_pyam8")
+text = "Volver"
+
+[connection signal="pressed" from="MarginContainer/MainVBox/BackButton" to="." method="_on_back_button_pressed"]

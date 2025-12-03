@@ -10,7 +10,7 @@ extends Control
 
 func _ready():
 	_load_config_data()
-	
+
 
 func _on_back_pressed():
 	SceneManager.change_scene(SceneManager.SCENES.SESSION_MENU)
@@ -47,8 +47,15 @@ func _on_save_pressed():
 	if school_empty or group_empty or minutes_empty or seconds_empty:
 		return
 	
+	# 1) Guardar configuración en el archivo config.cfg
 	ConfigManager.save_session_config(school, group, minutes, seconds)
+	
+	# 2) Crear una nueva sesión local en StatsManager (sesión activa)
+	StatsManager.create_session_from_config()
+	
+	# 3) Volver al menú de sesión
 	SceneManager.change_scene(SceneManager.SCENES.SESSION_MENU)
+
 
 func _is_input_empty(error_label, text):
 	if text.is_empty():

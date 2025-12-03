@@ -17,6 +17,8 @@ enum SCENES {
 	SESSION_MENU,
 	SESSION_CONFIG,
 	PLAYER_CONFIG,
+	STATS_MENU,       
+	STATS_DETAIL,      
 	MINIGAME_IDENTIFICATION,
 	GAME_MANAGER
 }
@@ -28,6 +30,8 @@ var scenes = {
 	SCENES.SESSION_MENU: preload("res://scenes/session_config/session_menu.tscn"),
 	SCENES.SESSION_CONFIG: preload("res://scenes/session_config/session_config.tscn"),
 	SCENES.PLAYER_CONFIG: preload("res://scenes/player_config/player_config.tscn"),
+	SCENES.STATS_MENU: preload("res://scenes/stats/stats_menu.tscn"),     
+	SCENES.STATS_DETAIL: preload("res://scenes/stats/stats_detail.tscn"),  
 	SCENES.MINIGAME_IDENTIFICATION: preload("res://scenes/minigames/identification/identification.tscn"),
 	SCENES.GAME_MANAGER: preload("res://scenes/minigames/game_manager.tscn"),
 }
