@@ -13,19 +13,15 @@ func _fill_sessions() -> void:
 	for child in list_container.get_children():
 		child.queue_free()
 
-	var sessions: Array = StatsManager.get_all_sessions()
+	var sessions: Array = StatsManager.get_sessions_for_current_user()
 
 	if sessions.is_empty():
 		return
 
 	for s in sessions:
-		# Instanciamos la tarjeta
 		var item = session_item_scene.instantiate()
-		# Rellenamos sus labels
 		item.setup(s)
-		# Conectamos el signal custom
 		item.session_pressed.connect(_on_session_item_pressed)
-		# La añadimos a la lista
 		list_container.add_child(item)
 
 

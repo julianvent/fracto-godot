@@ -46,9 +46,22 @@ func _load_session_data() -> void:
 
 
 func _on_export_button_pressed() -> void:
-	var path = StatsManager.export_session_to_csv(StatsManager.current_session)
-	print("CSV exportado en:", path)
+	var path := StatsManager.export_session_to_csv(StatsManager.current_session)
+
+	if path == "":
+		_show_message("No se pudo exportar el archivo CSV.\nRevisa permisos o vuelve a intentar.", true)
+	else:
+		_show_message("Archivo CSV exportado con éxito.\nUbicación:\n" + path)
 
 
 func _on_back_button_pressed() -> void:
 	SceneManager.change_scene(SceneManager.SCENES.STATS_MENU)
+
+
+# ------------ Helpers de UI ------------
+func _show_message(text: String, is_error: bool = false) -> void:
+	var dialog := AcceptDialog.new()
+	dialog.title = "Error al exportar" if is_error else "Exportar CSV"
+	dialog.dialog_text = text
+	add_child(dialog)
+	dialog.popup_centered()

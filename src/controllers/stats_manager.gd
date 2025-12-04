@@ -57,7 +57,7 @@ func create_session_from_config() -> void:
 
 	var local_id = "sess_%d" % Time.get_unix_time_from_system()
 	var datetime_str = Time.get_datetime_string_from_unix_time(Time.get_unix_time_from_system())
-	var date_only = datetime_str.split("T")[0]  # "YYYY-MM-DD"
+	var date_only = datetime_str.split("T")[0]  
 
 	var session := {
 		"local_id": local_id,
@@ -67,9 +67,9 @@ func create_session_from_config() -> void:
 		"group": group,
 		"duration_seconds": duration_seconds,
 		"date": date_only,
-		"players": [],      # jugadores: [{ alias, gender }]
-		"juegos": {},       # para minijuegos, por si luego guardas porcentaje
-		"synced": false     # false = pendiente de enviar a la API
+		"players": [],     
+		"juegos": {},       
+		"synced": false     
 	}
 
 	sessions.append(session)
@@ -93,7 +93,6 @@ func get_active_session() -> Dictionary:
 
 
 # 3) Jugadores dentro de la sesión activa
-
 func add_player_to_active_session(alias: String, gender: String) -> void:
 	var session = get_active_session()
 	if session.is_empty():
@@ -119,9 +118,19 @@ func add_player_to_active_session(alias: String, gender: String) -> void:
 
 
 # 4) Helpers para pantallas de estadísticas
-
 func get_all_sessions() -> Array:
 	return sessions
+
+
+func get_sessions_for_current_user() -> Array:
+	var uid: int = int(Global.auth_user.get("id", 0))
+	var result: Array = []
+
+	for s in sessions:
+		if int(s.get("user_id", 0)) == uid:
+			result.append(s)
+
+	return result
 
 
 func get_session_by_local_id(local_id: String) -> Dictionary:
@@ -162,21 +171,27 @@ func get_session_counts(session: Dictionary) -> Dictionary:
 	}
 
 
-# 5) CSV local (compatible con tu diseño anterior)
-
+# 5) CSV local 
 func export_session_to_csv(session: Dictionary) -> String:
-	var rows: Array[String] = []
-
 	var counts = get_session_counts(session)
 
-	var folio = session.get("folio", session.get("remote_id", session.get("local_id", "")))
-	var group = session.get("group", "")
-	var school = session.get("school", "")
-	var date = session.get("date", "")
+	# Folio
+	var folio_raw = session.get("folio", session.get("remote_id", session.get("local_id", "")))
+	var folio: String
+	if typeof(folio_raw) in [TYPE_FLOAT, TYPE_INT]:
+		folio = str(int(folio_raw))
+	else:
+		folio = str(folio_raw)
+
+	var group = str(session.get("group", ""))
+	var school = str(session.get("school", ""))
+	var date = str(session.get("date", ""))
+
+	var rows: Array[String] = []
 
 	rows.append("Campo,Valor")
 	rows.append("Folio,%s" % folio)
-	rows.append("Grupo,%s" % group)
+	rows.append("Grupo,'%s'" % group)
 	rows.append("Escuela,%s" % school)
 	rows.append("Fecha,%s" % date)
 
@@ -186,24 +201,28 @@ func export_session_to_csv(session: Dictionary) -> String:
 	rows.append("Prefiero no decirlo,%s" % counts["N"])
 
 	var juegos: Dictionary = session.get("juegos", {})
-	rows.append("Identificación de fracciones,%s" %
-		str(juegos.get("identificacion_porcentaje", 0)) + "%")
-	rows.append("Colorear fracciones,%s" %
-		str(juegos.get("colorear_porcentaje", 0)) + "%")
-	rows.append("Suma/resta de fracciones,%s" %
-		str(juegos.get("suma_resta_porcentaje", 0)) + "%")
+	rows.append("Identificación de fracciones,%s%%" %
+		juegos.get("identificacion_porcentaje", 0))
+	rows.append("Colorear fracciones,%s%%" %
+		juegos.get("colorear_porcentaje", 0))
+	rows.append("Suma/resta de fracciones,%s%%" %
+		juegos.get("suma_resta_porcentaje", 0))
 
 	var csv := "\n".join(rows)
 
 	var dir_path := "user://exports"
-	if not DirAccess.dir_exists_absolute(dir_path):
-		DirAccess.make_dir_recursive_absolute(dir_path)
+	DirAccess.make_dir_recursive_absolute(dir_path)
 
 	var file_name := "sesion_%s.csv" % folio
 	var full_path := dir_path + "/" + file_name
 
 	var file := FileAccess.open(full_path, FileAccess.WRITE)
+	if file == null:
+		push_error("No se pudo escribir el archivo CSV en: %s" % full_path)
+		return ""
+
 	file.store_string(csv)
+	file.flush()
 	file.close()
 
 	return full_path
@@ -213,17 +232,21 @@ func export_session_to_csv(session: Dictionary) -> String:
 # Construye el arreglo que espera Laravel en POST /sessions/sync
 func build_pending_sessions_payload() -> Array:
 	var pending: Array = []
+	var uid: int = int(Global.auth_user.get("id", 0))
 
 	for s in sessions:
+		# Solo sesiones NO sincronizadas del usuario actual
 		if not s.get("synced", false):
-			# Transformar jugadores locales -> formato API { alias, genero }
+			if int(s.get("user_id", 0)) != uid:
+				continue
+
 			var jugadores_payload: Array = []
 			var players: Array = s.get("players", [])
 
 			for p in players:
 				jugadores_payload.append({
 					"alias": p.get("alias", ""),
-					"genero": p.get("gender", ""),  # la API espera "genero"
+					"genero": p.get("gender", ""),
 				})
 
 			pending.append({
@@ -250,11 +273,13 @@ func mark_sessions_as_synced(mapping: Dictionary) -> void:
 
 	_save_sessions()
 
+
 func has_pending_sessions() -> bool:
 	for s in sessions:
 		if not s.get("synced", false):
 			return true
 	return false
+
 
 # 7) Llamar a la API: POST /v1/auth/sessions/sync
 func sync_pending_sessions() -> void:
@@ -270,10 +295,7 @@ func sync_pending_sessions() -> void:
 		print("No hay token de autenticación, no se puede sincronizar.")
 		return
 
-	# Usa la misma base que ya usas para login, por ejemplo:
-	# Global.API_BASE_URL = "https://tu-dominio.com/api"
 	var url: String = Global.API_BASE_URL + "/v1/auth/sessions/sync"
-
 
 	var headers := [
 		"Content-Type: application/json",
