@@ -1,10 +1,12 @@
 extends Control
 
+
 @onready var header_label: Label = $MarginContainer/MainVBox/HeaderCard/HeaderVBox/HeaderLabel
-@onready var total_label: Label  = $MarginContainer/MainVBox/CountsVBox/TotalLabel
-@onready var masc_label: Label   = $MarginContainer/MainVBox/CountsVBox/MascLabel
-@onready var fem_label: Label    = $MarginContainer/MainVBox/CountsVBox/FemLabel
-@onready var nd_label: Label     = $MarginContainer/MainVBox/CountsVBox/NDLabel
+
+@onready var total_label: Label = $MarginContainer/MainVBox/HeaderCard/HeaderVBox/CountsVBox/TotalRow/TotalLabel
+@onready var masc_label: Label  = $MarginContainer/MainVBox/HeaderCard/HeaderVBox/CountsVBox/MascRow/MascLabel
+@onready var fem_label: Label   = $MarginContainer/MainVBox/HeaderCard/HeaderVBox/CountsVBox/FemRows/FemLabel
+@onready var nd_label: Label    = $MarginContainer/MainVBox/HeaderCard/HeaderVBox/CountsVBox/HBoxContainer/NDLabel
 
 
 func _ready() -> void:
