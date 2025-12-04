@@ -69,7 +69,6 @@ func _on_filter_by_school_button_pressed() -> void:
 	_update_filter_buttons()
 
 
-# Cambiar visual del botón activo 
 func _update_filter_buttons() -> void:
 	if sort_mode == "date":
 		filter_by_date_button.modulate = Color(1, 1, 1, 1)

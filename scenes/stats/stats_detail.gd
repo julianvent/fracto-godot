@@ -25,7 +25,7 @@ func _load_session_data() -> void:
 	var group: String  = session.get("group", "")
 	var date: String   = session.get("date", "")
 
-	# -------- Encabezado: escuela + grupo en la tarjeta morada --------
+	# Encabezado: escuela + grupo 
 	var linea_superior: String = school
 	if group != "":
 		if linea_superior != "":
@@ -40,7 +40,7 @@ func _load_session_data() -> void:
 
 	header_label.text = header_text
 
-	# -------- Conteos --------
+	# Conteos 
 	total_label.text = "%d jugadores" % counts["total"]
 	masc_label.text  = "%d masculinos" % counts["M"]
 	fem_label.text   = "%d femeninas" % counts["F"]
@@ -60,7 +60,7 @@ func _on_back_button_pressed() -> void:
 	SceneManager.change_scene(SceneManager.SCENES.STATS_MENU)
 
 
-# ------------ Helpers de UI ------------
+# Helpers de UI 
 func _show_message(text: String, is_error: bool = false) -> void:
 	var dialog := AcceptDialog.new()
 	dialog.title = "Error al exportar" if is_error else "Exportar CSV"

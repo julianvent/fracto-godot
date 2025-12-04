@@ -115,10 +115,9 @@ func _http_request_completed(result, response_code, headers, body):
 	error_password_label.visible = false
 	error_register_label.visible = false
 	
-	# ÉXITO -> 201 Created (o 200 por si acaso)
+	# ÉXITO -> 201 Created
 	if response_code == HTTPClient.RESPONSE_CREATED or response_code == HTTPClient.RESPONSE_OK:
 		_enable_buttons()
-		# Podrías mostrar un mensaje tipo "Cuenta creada, inicia sesión" si quieres
 		SceneManager.change_scene(SceneManager.SCENES.LOGIN)
 		return
 	

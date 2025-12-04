@@ -16,7 +16,6 @@ func _update_session_view() -> void:
 
 	var session := StatsManager.get_active_session()
 
-	# Si por alguna razón sigue sin haber sesión, usamos el viejo fallback
 	if session.is_empty():
 		_load_config_data_fallback()
 		return
@@ -36,7 +35,6 @@ func _update_session_view() -> void:
 
 
 func _load_config_data_fallback() -> void:
-	# Fallback por si algo raro pasa con StatsManager
 	ConfigManager.load_config()
 
 	var school = str(ConfigManager.config.get_value(ConfigManager.SESSION_SECTION, "school", ""))

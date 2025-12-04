@@ -15,26 +15,13 @@ func _try_sync_sessions() -> void:
 		StatsManager.sync_pending_sessions()
 
 func _on_configure_pressed() -> void:
-	# Aquí podrías abrir directamente la pantalla de configuración de sesión
-	# por ejemplo:
-	# SceneManager.change_scene(SceneManager.SCENES.SESSION_CONFIG)
 	pass
 
 
 func _on_play_pressed() -> void:
-	# IDEA DE FLUJO:
-	# - Si hay sesión activa → mostrar menú de sesión / datos de sesión.
-	# - Si NO hay sesión activa → mandar a configurar sesión.
-	#
-	# Por ahora mantenemos el flujo actual que siempre va al SESSION_MENU,
-	# pero ya tenemos StatsManager.has_active_session() disponible.
-	
 	if StatsManager.has_active_session():
 		SceneManager.change_scene(SceneManager.SCENES.SESSION_MENU)
 	else:
-		# Si más adelante tienes una escena específica para configurar sesión
-		# puedes cambiar esta línea por:
-		# SceneManager.change_scene(SceneManager.SCENES.SESSION_CONFIG)
 		SceneManager.change_scene(SceneManager.SCENES.SESSION_MENU)
 
 

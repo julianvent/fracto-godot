@@ -1,7 +1,7 @@
 extends Control
 
 @export var group: ButtonGroup
-var gender: String = ""        # código: "M", "F", "N"
+var gender: String = ""        
 var alias: String = ""
 
 
@@ -34,15 +34,12 @@ func _on_play_pressed():
 	if gender_code == "":
 		gender_code = "N"
 	
-	# Guardamos también en Global por si lo usas en otra parte
 	Global.player_gender = gender_code
 	Global.player_name = alias
 	
 	# Registrar jugador en la sesión activa de StatsManager
 	StatsManager.add_player_to_active_session(alias, gender_code)
 	
-	# Limpiar error visual si lo estabas usando
 	$GenderError.visible = false
 	
-	# Ir al gestor de minijuegos
 	SceneManager.change_scene(SceneManager.SCENES.GAME_MANAGER)

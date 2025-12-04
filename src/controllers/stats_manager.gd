@@ -44,7 +44,6 @@ func _save_sessions() -> void:
 
 
 # 2) Manejo de sesión activa
-# Crear una nueva sesión a partir de la configuración actual (escuela, grupo, tiempo)
 func create_session_from_config() -> void:
 	ConfigManager.load_config()
 	var cfg = ConfigManager.config
@@ -229,7 +228,6 @@ func export_session_to_csv(session: Dictionary) -> String:
 
 
 # 6) Preparar sincronización con la API
-# Construye el arreglo que espera Laravel en POST /sessions/sync
 func build_pending_sessions_payload() -> Array:
 	var pending: Array = []
 	var uid: int = int(Global.auth_user.get("id", 0))
