@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://ta7uvvh8wmf2"]
+
+[ext_resource type="PackedScene" uid="uid://ccxori2fj6nnj" path="res://scenes/minigames/identification/components/fraction_card.tscn" id="1_f6asq"]
+
+[node name="PanelContainer" type="PanelContainer"]
+offset_right = 704.0
+offset_bottom = 248.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="FractionCard3" parent="HBoxContainer" instance=ExtResource("1_f6asq")]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="FractionCard2" parent="HBoxContainer" instance=ExtResource("1_f6asq")]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="FractionCard" parent="HBoxContainer" instance=ExtResource("1_f6asq")]
+layout_mode = 2

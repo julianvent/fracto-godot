@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct7fgwewwkljv"]
+
+[ext_resource type="Script" uid="uid://tsnu7rg2hg5" path="res://scenes/minigames/Addition/Elements/addition_container.gd" id="1_m36n4"]
+[ext_resource type="PackedScene" uid="uid://csx21dg687ers" path="res://scenes/minigames/identification/components/fraction_pizza.tscn" id="2_ra6ri"]
+[ext_resource type="Texture2D" uid="uid://bq7p30iak1w6n" path="res://assets/addition_symbol.svg" id="3_ra6ri"]
+
+[node name="PanelContainer" type="PanelContainer"]
+offset_right = 640.0
+offset_bottom = 256.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_m36n4")
+pizza_scene = ExtResource("2_ra6ri")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+z_index = 2
+layout_mode = 2
+localize_numeral_system = false
+alignment = 1
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 13
+size_flags_vertical = 4
+localize_numeral_system = false
+texture = ExtResource("3_ra6ri")
+stretch_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TextureRect2"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = -13.0
+offset_right = 46.0
+offset_bottom = -10.0
+rotation = 1.5707964
+stretch_mode = 2
+
+[node name="Control2" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 5
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
