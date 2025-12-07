@@ -1,18 +1,18 @@
 extends Node
 
 func _ready():
-	mostrar_cartas_opciones()
+	call_deferred("mostrar_cartas_opciones")
 
-# --- Utilidades ---
+
 func random_fraction() -> Dictionary:
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	var denominator = rng.randi_range(1, 8)
-	var numerator = rng.randi_range(0, denominator)
+	var denominator = rng.randi_range(2, 6)
+	var numerator = rng.randi_range(1, denominator)
 	var divisor = maximo_comun_divisor(numerator, denominator)
 	return {
-		"numerator": numerator,
-		"denominator": denominator,
+		"numerator": int(numerator / divisor),
+		"denominator": int(denominator / divisor),
 		"reduced": {
 			"numerator": int(numerator / divisor),
 			"denominator": int(denominator / divisor)
@@ -31,6 +31,11 @@ func sum_fractions(frac1: Dictionary, frac2: Dictionary) -> Dictionary:
 	var den1 = frac1["denominator"]
 	var num2 = frac2["numerator"]
 	var den2 = frac2["denominator"]
+	
+	print("Fracción 1: %s/%s, Fracción 2: %s/%s" % [
+	frac1["numerator"], frac1["denominator"],
+	frac2["numerator"], frac2["denominator"]
+	])
 
 	var suma_numerador = num1 * den2 + num2 * den1
 	var suma_denominador = den1 * den2
@@ -39,8 +44,8 @@ func sum_fractions(frac1: Dictionary, frac2: Dictionary) -> Dictionary:
 	var reduced_numerador = int(suma_numerador / divisor)
 	var reduced_denominator = int(suma_denominador / divisor)
 	return {
-		"numerator": suma_numerador,
-		"denominator": suma_denominador,
+		"numerator": reduced_numerador,
+		"denominator": reduced_denominator,
 		"reduced": {
 			"numerator": reduced_numerador,
 			"denominator": reduced_denominator
@@ -57,14 +62,15 @@ func contains_fraction(array: Array, frac: Dictionary) -> bool:
 	return false
 
 func mostrar_cartas_opciones():
-	# Genera dos fracciones aleatorias
-	var fraction1 = random_fraction()
-	var fraction2 = random_fraction()
+	# Fracciones desde addition_container (PanelContainer)
+	var fraction_container = $BG/PanelContainer
+	var fraction1 = fraction_container.fraction1
+	var fraction2 = fraction_container.fraction2
 
-	# Suma fracciones como opción correcta
+	# FRaccion correcta
 	var correct_frac = sum_fractions(fraction1, fraction2)
 
-	# Genera dos distractores válidos y distintos
+	# Fracciones incorrectas
 	var options := [correct_frac]
 	while options.size() < 3:
 		var distractor = random_fraction()
@@ -73,7 +79,7 @@ func mostrar_cartas_opciones():
 
 	options.shuffle() # Aleatorio
 
-	# Obtén referencias a las cartas instanciadas en el editor
+
 	var card_nodes = [
 		$BG/fractions_container/HBoxContainer/FractionCard,
 		$BG/fractions_container/HBoxContainer/FractionCard2,
@@ -82,8 +88,11 @@ func mostrar_cartas_opciones():
 	# Asigna cada fracción
 	for i in range(card_nodes.size()):
 		card_nodes[i].set_fraction(options[i])
-
+	
+	$BG/FractionSlot.set_fraction(correct_frac)
+	
 	print("Fracción correcta: %s/%s (Reducida: %s/%s)" % [
 		correct_frac["numerator"], correct_frac["denominator"],
 		correct_frac["reduced"]["numerator"], correct_frac["reduced"]["denominator"]
 	])
+	

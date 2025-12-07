@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bf3mdb3nf11nb"]
 
-[ext_resource type="Script" uid="uid://dusa2x8pvns4v" path="res://addition.gd" id="1_f5lgy"]
+[ext_resource type="Script" uid="uid://dusa2x8pvns4v" path="res://scenes/minigames/Addition/addition.gd" id="1_f5lgy"]
 [ext_resource type="PackedScene" uid="uid://ct7fgwewwkljv" path="res://scenes/minigames/Addition/Elements/addition_container.tscn" id="2_a05mk"]
 [ext_resource type="PackedScene" uid="uid://dh1lnnvj8o8mt" path="res://scenes/minigames/identification/components/fraction_slot.tscn" id="4_wmxk1"]
 [ext_resource type="PackedScene" uid="uid://ccxori2fj6nnj" path="res://scenes/minigames/identification/components/fraction_card.tscn" id="5_xlnaf"]

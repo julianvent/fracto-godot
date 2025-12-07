@@ -2,6 +2,9 @@ extends Control
 
 @export var pizza_scene: PackedScene          
 
+var fraction1: Dictionary = {}
+var fraction2: Dictionary = {}
+
 func _ready():
 	_start_round()
 
@@ -11,9 +14,9 @@ func _start_round():
 	for node in $HBoxContainer/Control2/CenterContainer.get_children():
 		node.queue_free()
 
-	# Fracciones aleatorias
-	var fraction1 = random_fraction()
-	var fraction2 = random_fraction()
+	# Fracciones aleatorias 
+	fraction1 = random_fraction()
+	fraction2 = random_fraction()
 
 	# Pizza izquierda
 	var pizza1 = pizza_scene.instantiate()
@@ -31,10 +34,11 @@ func random_fraction() -> Dictionary:
 	rng.randomize()
 	var denominator = rng.randi_range(2, 6) #Rangos del denominador
 	var numerator = rng.randi_range(1, denominator) #Rangos del numerador
+	var divisor = maximo_comun_divisor(numerator, denominator)
 	return {
-		"numerator": numerator,
-		"denominator": denominator,
-		"reduced": {"numerator": numerator, "denominator": denominator}
+		"numerator": int(numerator / divisor),
+		"denominator": int(denominator / divisor),
+		"reduced": {"numerator": int(numerator / divisor), "denominator": int(denominator / divisor)}
 	}
 
 func maximo_comun_divisor(a: int, b: int) -> int:
@@ -55,11 +59,11 @@ func sum_fractions(frac1: Dictionary, frac2: Dictionary) -> Dictionary:
 	
 	# Reducción
 	var divisor = maximo_comun_divisor(suma_numerador, suma_denominador)
-	var reduced_numerador = suma_numerador / divisor
-	var reduced_denominador = suma_denominador / divisor
+	var reduced_numerador = int(suma_numerador / divisor)
+	var reduced_denominador = int(suma_denominador / divisor)
 
 	return {
-		"numerator": suma_numerador,
-		"denominator": suma_denominador,
+		"numerator": reduced_numerador,
+		"denominator": reduced_denominador,
 		"reduced": {"numerator": reduced_numerador, "denominator": reduced_denominador}
 	}
