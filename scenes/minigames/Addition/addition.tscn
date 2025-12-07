@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dusa2x8pvns4v" path="res://addition.gd" id="1_f5lgy"]
 [ext_resource type="PackedScene" uid="uid://ct7fgwewwkljv" path="res://scenes/minigames/Addition/Elements/addition_container.tscn" id="2_a05mk"]
-[ext_resource type="PackedScene" uid="uid://ta7uvvh8wmf2" path="res://scenes/minigames/Addition/Elements/fractions_container.tscn" id="3_cfj63"]
 [ext_resource type="PackedScene" uid="uid://dh1lnnvj8o8mt" path="res://scenes/minigames/identification/components/fraction_slot.tscn" id="4_wmxk1"]
+[ext_resource type="PackedScene" uid="uid://ccxori2fj6nnj" path="res://scenes/minigames/identification/components/fraction_card.tscn" id="5_xlnaf"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_f5lgy")
@@ -27,22 +27,6 @@ offset_right = 300.0
 offset_bottom = 414.0
 grow_horizontal = 2
 
-[node name="fractions_container" parent="BG" instance=ExtResource("3_cfj63")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = 317.0
-offset_right = 300.0
-offset_bottom = 515.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-
 [node name="FractionSlot" parent="BG" instance=ExtResource("4_wmxk1")]
 layout_mode = 1
 anchors_preset = 8
@@ -51,8 +35,38 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -85.0
-offset_top = -80.0
+offset_top = -56.0
 offset_right = 85.0
-offset_bottom = 80.0
+offset_bottom = 104.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="fractions_container" type="PanelContainer" parent="BG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = 320.0
+offset_right = 300.0
+offset_bottom = 516.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BG/fractions_container"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 50
+
+[node name="FractionCard3" parent="BG/fractions_container/HBoxContainer" instance=ExtResource("5_xlnaf")]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="FractionCard2" parent="BG/fractions_container/HBoxContainer" instance=ExtResource("5_xlnaf")]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="FractionCard" parent="BG/fractions_container/HBoxContainer" instance=ExtResource("5_xlnaf")]
+layout_mode = 2
