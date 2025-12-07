@@ -1,8 +1,38 @@
 extends Node
 
-func _ready():
-	call_deferred("mostrar_cartas_opciones")
+signal game_finished
+signal update_points(points)
 
+var _game_over: bool = false
+@onready var fraction_slot = $BG/FractionSlot
+
+func _ready():
+	call_deferred("show_cards")
+	call_deferred("_connect_fraction_slot")
+
+func _connect_fraction_slot() -> void:
+	if fraction_slot and fraction_slot.is_inside_tree():
+		# Conectar usando Callable (Godot 4)
+		fraction_slot.connect("dropped_card", Callable(self, "_on_fraction_slot_dropped_card"))
+	else:
+		# Si el nodo aún no está listo, intentamos más tarde
+		call_deferred("_connect_fraction_slot")
+
+# Callback cuando una carta es dropeada en el slot
+func _on_fraction_slot_dropped_card(card_node, correct) -> void:
+	if _game_over:
+		return
+
+	if correct:
+		# Recompensa desde el slot (export var points_reward) (agregar sonido)
+		var pts = int(fraction_slot.points_reward)
+		# notifica puntos y finaliza el minijuego
+		emit_signal("update_points", pts)
+		emit_signal("game_finished")
+		_game_over = true
+	else:
+		# efecto de respuesta incorrecta (cambiar por sonido)
+		print("Respuesta incorrecta")
 
 func random_fraction() -> Dictionary:
 	var rng = RandomNumberGenerator.new()
@@ -61,7 +91,7 @@ func contains_fraction(array: Array, frac: Dictionary) -> bool:
 			return true
 	return false
 
-func mostrar_cartas_opciones():
+func show_cards():
 	# Fracciones desde addition_container (PanelContainer)
 	var fraction_container = $BG/PanelContainer
 	var fraction1 = fraction_container.fraction1
@@ -96,3 +126,9 @@ func mostrar_cartas_opciones():
 		correct_frac["reduced"]["numerator"], correct_frac["reduced"]["denominator"]
 	])
 	
+func finish_game(points_gained: int = 0) -> void:
+	if _game_over:
+		return
+	emit_signal("update_points", points_gained)
+	emit_signal("game_finished")
+	_game_over = true
