@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwsrb7f3fle3m"]
+[gd_scene load_steps=5 format=3 uid="uid://bwsrb7f3fle3m"]
 
 [ext_resource type="Theme" uid="uid://delr504llxavj" path="res://ui/components/labels/menu_title.tres" id="1_ibfba"]
 [ext_resource type="Script" uid="uid://c5rc7scl7ocy1" path="res://scenes/minigames/hud/points.gd" id="1_rvneh"]
+[ext_resource type="PackedScene" uid="uid://b3suqleoonl1w" path="res://scenes/minigames/hud/points/floating_points.tscn" id="2_fpk0u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvneh"]
 bg_color = Color(1, 0.8509804, 0.23137255, 1)
@@ -17,6 +18,7 @@ shadow_offset = Vector2(0, 2)
 custom_minimum_size = Vector2(120, 120)
 theme_override_styles/panel = SubResource("StyleBoxFlat_rvneh")
 script = ExtResource("1_rvneh")
+floating_points_scene = ExtResource("2_fpk0u")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2

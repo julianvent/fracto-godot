@@ -49,6 +49,7 @@ func _on_save_pressed():
 	
 	# 1) Guardar configuración en el archivo config.cfg
 	ConfigManager.save_session_config(school, group, minutes, seconds)
+	Global.load_play_time()
 	
 	# 2) Crear una nueva sesión local en StatsManager (sesión activa)
 	StatsManager.create_session_from_config()

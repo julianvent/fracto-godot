@@ -3,7 +3,7 @@ extends Control
 @export var points_reward = 10
 @export var floating_points_scene: PackedScene
 
-signal dropped_card(card_node, correct)
+signal dropped_card(correct)
 
 var original_fraction := {"numerator": 1, "denominator": 2}
 var reduced_fraction := {"numerator": 1, "denominator": 2}
@@ -40,9 +40,8 @@ func _drop_data(at_position: Vector2, data: Variant):
 			card.place_in_slot(self)
 			_is_card_placed = true
 			_show_points(points_reward, at_position)
-			emit_signal("dropped_card", card, true)
-		else:
-			emit_signal("dropped_card", card, false)
+		
+		emit_signal("dropped_card", correct)
 			
 
 func _show_points(points: int, local_pos: Vector2) -> void:

@@ -1,0 +1,144 @@
+[gd_scene load_steps=10 format=3 uid="uid://xhwpk3g8scs1"]
+
+[ext_resource type="Theme" uid="uid://delr504llxavj" path="res://ui/components/labels/menu_title.tres" id="1_186xp"]
+[ext_resource type="Script" uid="uid://qsdjw1l50uwe" path="res://scenes/minigames/stats/stats_scene.gd" id="1_ynx54"]
+[ext_resource type="StyleBox" uid="uid://3l653hvj06w3" path="res://ui/components/panel/panel.tres" id="2_7p6sv"]
+[ext_resource type="Theme" uid="uid://dib6hltpuum6c" path="res://ui/components/labels/subtitle.tres" id="3_fn67j"]
+[ext_resource type="Theme" uid="uid://b8ceskc6kb8lj" path="res://ui/components/labels/fracto_title.tres" id="4_teolu"]
+[ext_resource type="Texture2D" uid="uid://cviui16v0cr15" path="res://assets/Streak.svg" id="5_fn67j"]
+[ext_resource type="Texture2D" uid="uid://cntf5jubu6gqj" path="res://assets/Star.svg" id="6_teolu"]
+[ext_resource type="PackedScene" uid="uid://bf1t5p78ivl55" path="res://ui/components/buttons/button_custom.tscn" id="7_uejde"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_teolu"]
+content_margin_left = 50.0
+content_margin_top = 20.0
+content_margin_right = 50.0
+content_margin_bottom = 20.0
+bg_color = Color(0.3882353, 0.21176471, 0.78039217, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[node name="StatsScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ynx54")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47058824, 0.3254902, 0.972549, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -218.5
+offset_top = -552.0
+offset_right = 218.5
+offset_bottom = -435.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_186xp")
+theme_override_font_sizes/font_size = 96
+text = "¡Muy bien!"
+
+[node name="Summary" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -271.5
+offset_top = -354.0
+offset_right = 271.5
+offset_bottom = 425.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="PanelContainer" type="PanelContainer" parent="Summary"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_7p6sv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Summary/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Summary/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fn67j")
+theme_override_font_sizes/font_size = 64
+text = "Puntaje total"
+horizontal_alignment = 1
+
+[node name="TotalPoints" type="Label" parent="Summary/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_teolu")
+text = "200"
+horizontal_alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="Summary"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_teolu")
+
+[node name="StreakContainer" type="HBoxContainer" parent="Summary/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="Summary/PanelContainer2/StreakContainer"]
+layout_mode = 2
+texture = ExtResource("5_fn67j")
+
+[node name="TotalStreak" type="Label" parent="Summary/PanelContainer2/StreakContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_186xp")
+text = "10 rachas"
+horizontal_alignment = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="Summary"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_teolu")
+
+[node name="DifficultyContainer" type="HBoxContainer" parent="Summary/PanelContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="Summary/PanelContainer3/DifficultyContainer"]
+layout_mode = 2
+texture = ExtResource("6_teolu")
+
+[node name="Difficulty" type="Label" parent="Summary/PanelContainer3/DifficultyContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_186xp")
+text = "Fácil"
+horizontal_alignment = 1
+
+[node name="ButtonCustom" parent="." instance=ExtResource("7_uejde")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 492.0
+offset_right = 250.0
+offset_bottom = 577.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Nueva ronda"

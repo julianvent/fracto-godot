@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsludsnpnox4t"]
+
+[ext_resource type="Texture2D" uid="uid://cviui16v0cr15" path="res://assets/Streak.svg" id="1_0lrdi"]
+[ext_resource type="Script" uid="uid://c85hclfkb2we" path="res://scenes/minigames/hud/streak.gd" id="1_7vs41"]
+[ext_resource type="Theme" uid="uid://dib6hltpuum6c" path="res://ui/components/labels/subtitle.tres" id="2_in8df"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_in8df"]
+draw_center = false
+
+[node name="Streak" type="PanelContainer"]
+offset_right = 38.0
+offset_bottom = 48.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_in8df")
+script = ExtResource("1_7vs41")
+
+[node name="StreakSprite" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_0lrdi")
+
+[node name="Streak" type="Label" parent="StreakSprite"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -13.0
+offset_top = -12.0
+offset_right = 13.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_in8df")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
