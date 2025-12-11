@@ -2,6 +2,7 @@ extends Node
 
 @export var countdown_scene: PackedScene
 @export var identification_scene: PackedScene
+@export var addition_scene: PackedScene
 @export var continue_scene: PackedScene
 @export var stats_scene: PackedScene
 @export var identification_replay = 3
@@ -9,6 +10,7 @@ extends Node
 @onready var current_scene = $CurrentScene
 @onready var HUD = $HUD
 @onready var timer = $TickTimer
+
 
 # Game states
 enum GameState { IDLE, COUNTDOWN, PLAYING, REPLAYING, CONTINUE, FINISHED }
@@ -25,6 +27,7 @@ var games := []
 	
 func _ready() -> void:
 	games = [
+		{"scene": addition_scene, "replays": identification_replay},
 		{"scene": identification_scene, "replays": identification_replay},
 		{"scene": identification_scene, "replays": identification_replay},
 	]

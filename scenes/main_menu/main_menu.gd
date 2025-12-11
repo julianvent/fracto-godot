@@ -5,18 +5,28 @@ extends Control
 func _ready() -> void:
 	if not logout_http.request_completed.is_connected(_on_logout_request_completed):
 		logout_http.request_completed.connect(_on_logout_request_completed)
+	# Intentar sincronizar sesiones pendientes
+	_try_sync_sessions()
 
+
+func _try_sync_sessions() -> void:
+	# Opcional: solo si hay pendientes
+	if StatsManager.has_pending_sessions():
+		StatsManager.sync_pending_sessions()
 
 func _on_configure_pressed() -> void:
 	pass
 
 
 func _on_play_pressed() -> void:
-	SceneManager.change_scene(SceneManager.SCENES.SESSION_MENU)
+	if StatsManager.has_active_session():
+		SceneManager.change_scene(SceneManager.SCENES.SESSION_MENU)
+	else:
+		SceneManager.change_scene(SceneManager.SCENES.SESSION_MENU)
 
 
 func _on_stats_pressed() -> void:
-	pass # Replace with function body.
+	SceneManager.change_scene(SceneManager.SCENES.STATS_MENU)
 
 
 func _on_about_pressed() -> void:
@@ -41,7 +51,6 @@ func _on_confirmation_dialog_confirmed() -> void:
 	]
 	
 	var url = Routes.logout_url  
-	
 	var body = ""  
 	
 	var res = logout_http.request(url, headers, HTTPClient.METHOD_POST, body)

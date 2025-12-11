@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dl0jx0xl7tc05"]
+[gd_scene load_steps=11 format=3 uid="uid://dl0jx0xl7tc05"]
 
 [ext_resource type="Script" uid="uid://by7hyxuqtnt4t" path="res://scenes/session_config/session_menu.gd" id="1_ukvaf"]
 [ext_resource type="Theme" uid="uid://delr504llxavj" path="res://ui/components/labels/menu_title.tres" id="2_etny8"]
 [ext_resource type="StyleBox" uid="uid://3l653hvj06w3" path="res://ui/components/panel/panel.tres" id="3_tjtdn"]
+[ext_resource type="FontFile" uid="uid://bgwi7agii3msr" path="res://assets/fredoka/static/Fredoka-Bold.ttf" id="3_ydmgr"]
 [ext_resource type="Theme" uid="uid://dib6hltpuum6c" path="res://ui/components/labels/subtitle.tres" id="4_b04oh"]
 [ext_resource type="Theme" uid="uid://ck8qjw157esgd" path="res://ui/components/labels/text.tres" id="5_lsa8n"]
 [ext_resource type="FontFile" uid="uid://bi7v6tsekvh83" path="res://assets/fredoka/static/Fredoka-SemiBold.ttf" id="6_p1tj2"]
@@ -39,6 +40,8 @@ offset_right = 254.0
 offset_bottom = 163.0
 grow_horizontal = 2
 theme = ExtResource("2_etny8")
+theme_override_fonts/font = ExtResource("3_ydmgr")
+theme_override_font_sizes/font_size = 80
 text = "Sesión"
 horizontal_alignment = 1
 

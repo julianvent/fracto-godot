@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1hxhtvebnmon"]
+
+[ext_resource type="Script" uid="uid://dfssdjtl4281s" path="res://node_2d.gd" id="1_86e8a"]
+[ext_resource type="Script" uid="uid://cpifot6eij60o" path="res://texture_button.gd" id="2_im8c3"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_86e8a")
+
+[node name="BG" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47058824, 0.3254902, 0.972549, 1)
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_im8c3")

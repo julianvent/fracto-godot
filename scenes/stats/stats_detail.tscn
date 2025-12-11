@@ -1,0 +1,192 @@
+[gd_scene load_steps=11 format=3 uid="uid://b8jgh6a8nbp7c"]
+
+[ext_resource type="Script" uid="uid://b5xjbvbje5xj4" path="res://scenes/stats/stats_detail.gd" id="1_quw64"]
+[ext_resource type="FontFile" uid="uid://bgwi7agii3msr" path="res://assets/fredoka/static/Fredoka-Bold.ttf" id="2_80itc"]
+[ext_resource type="FontFile" uid="uid://bi7v6tsekvh83" path="res://assets/fredoka/static/Fredoka-SemiBold.ttf" id="2_h3ygh"]
+[ext_resource type="Theme" uid="uid://c74cawrfo40xk" path="res://ui/components/buttons/button_custom_orange.tres" id="3_4u3bg"]
+[ext_resource type="Texture2D" uid="uid://b20atuyf5ajy4" path="res://assets/graphics/user-alt-svgrepo-com.svg" id="3_iva2g"]
+[ext_resource type="Texture2D" uid="uid://cp457vq3gybje" path="res://assets/mars-solid-full.svg" id="4_80itc"]
+[ext_resource type="Theme" uid="uid://bulw0ba8v1e06" path="res://ui/components/buttons/button_custom_purple.tres" id="4_lj3a0"]
+[ext_resource type="Texture2D" uid="uid://c0qp2fqtg7pm4" path="res://assets/venus-solid-full.svg" id="5_v1cp4"]
+[ext_resource type="Texture2D" uid="uid://dr80615flx1m3" path="res://assets/ban-solid-full.svg" id="6_b2gql"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wj15d"]
+content_margin_left = 40.0
+content_margin_top = 40.0
+content_margin_right = 40.0
+content_margin_bottom = 40.0
+bg_color = Color(0.3882353, 0.21176471, 0.78039217, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.23529412)
+shadow_size = 2
+shadow_offset = Vector2(0, 4)
+
+[node name="StatsDetail" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_quw64")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47058824, 0.3254902, 0.972549, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="MainVBox" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/MainVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0.3372549, 0.15686275, 0.96862745, 1)
+theme_override_fonts/font = ExtResource("2_80itc")
+theme_override_font_sizes/font_size = 80
+text = "Estadísticas"
+
+[node name="HeaderCard" type="PanelContainer" parent="MarginContainer/MainVBox"]
+custom_minimum_size = Vector2(500, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_wj15d")
+
+[node name="HeaderVBox" type="VBoxContainer" parent="MarginContainer/MainVBox/HeaderCard"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 40
+
+[node name="HeaderLabel" type="Label" parent="MarginContainer/MainVBox/HeaderCard/HeaderVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_80itc")
+theme_override_font_sizes/font_size = 38
+text = "Escuela Grupo \\n 2025-12-03"
+
+[node name="CountsVBox" type="VBoxContainer" parent="MarginContainer/MainVBox/HeaderCard/HeaderVBox"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 40
+
+[node name="TotalRow" type="HBoxContainer" parent="MarginContainer/MainVBox/HeaderCard/HeaderVBox/CountsVBox"]
+layout_mode = 2
+
+[node name="TotalIcon" type="TextureRect" parent="MarginContainer/MainVBox/HeaderCard/HeaderVBox/CountsVBox/TotalRow"]
+layout_mode = 2
+texture = ExtResource("3_iva2g")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="TotalLabel" type="Label" parent="MarginContainer/MainVBox/HeaderCard/HeaderVBox/CountsVBox/TotalRow"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_h3ygh")
+theme_override_font_sizes/font_size = 34
+text = "0 jugadores"
+
+[node name="MascRow" type="HBoxContainer" parent="MarginContainer/MainVBox/HeaderCard/HeaderVBox/CountsVBox"]
+layout_mode = 2
+
+[node name="MacIcon" type="TextureRect" parent="MarginContainer/MainVBox/HeaderCard/HeaderVBox/CountsVBox/MascRow"]
+layout_mode = 2
+texture = ExtResource("4_80itc")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="MascLabel" type="Label" parent="MarginContainer/MainVBox/HeaderCard/HeaderVBox/CountsVBox/MascRow"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_h3ygh")
+theme_override_font_sizes/font_size = 34
+text = "0 masculinos"
+
+[node name="FemRows" type="HBoxContainer" parent="MarginContainer/MainVBox/HeaderCard/HeaderVBox/CountsVBox"]
+layout_mode = 2
+
+[node name="FemIcon" type="TextureRect" parent="MarginContainer/MainVBox/HeaderCard/HeaderVBox/CountsVBox/FemRows"]
+layout_mode = 2
+texture = ExtResource("5_v1cp4")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="FemLabel" type="Label" parent="MarginContainer/MainVBox/HeaderCard/HeaderVBox/CountsVBox/FemRows"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_h3ygh")
+theme_override_font_sizes/font_size = 34
+text = "0 femeninas"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MainVBox/HeaderCard/HeaderVBox/CountsVBox"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MainVBox/HeaderCard/HeaderVBox/CountsVBox/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_b2gql")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="NDLabel" type="Label" parent="MarginContainer/MainVBox/HeaderCard/HeaderVBox/CountsVBox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_h3ygh")
+theme_override_font_sizes/font_size = 34
+text = "0 prefiero no decirlo"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 395.0
+offset_right = 250.0
+offset_bottom = 590.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+
+[node name="ExportButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(500, 85)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_4u3bg")
+text = "Exportar CSV"
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(500, 85)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("4_lj3a0")
+text = "Volver"
+
+[connection signal="pressed" from="VBoxContainer/ExportButton" to="." method="_on_export_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

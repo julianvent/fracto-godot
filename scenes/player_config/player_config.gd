@@ -1,8 +1,9 @@
 extends Control
 
 @export var group: ButtonGroup
-var gender: String
+var gender: String = ""        
 var alias: String = ""
+
 
 func _ready():
 	for button in group.get_buttons():
@@ -12,19 +13,33 @@ func _ready():
 func _on_back_pressed():
 	SceneManager.change_scene(SceneManager.SCENES.SESSION_MENU)
 
-	
-func _on_gender_pressed(_gender: String):
-	gender = _gender
+
+func _on_gender_pressed(label: String):
+	match label:
+		"Masculino":
+			gender = "M"
+		"Femenino":
+			gender = "F"
+		"Prefiero no decirlo":
+			gender = "N"
+		_:
+			gender = ""
 
 
 func _on_play_pressed():
-	if not gender:
-		$GenderError.visible = true
-		return
-	Global.player_gender = gender
-	$GenderError.visible = false
+	alias = $Alias.text.strip_edges()
 	
-	alias = $Alias.text
+	# Si el usuario no eligió género, lo consideramos como "Prefiero no decirlo"
+	var gender_code := gender
+	if gender_code == "":
+		gender_code = "N"
+	
+	Global.player_gender = gender_code
 	Global.player_name = alias
+	
+	# Registrar jugador en la sesión activa de StatsManager
+	StatsManager.add_player_to_active_session(alias, gender_code)
+	
+	$GenderError.visible = false
 	
 	SceneManager.change_scene(SceneManager.SCENES.GAME_MANAGER)

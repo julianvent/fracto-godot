@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ci710rsftb1b2"]
+[gd_scene load_steps=25 format=3 uid="uid://ci710rsftb1b2"]
 
 [ext_resource type="Script" uid="uid://xex07hxg0pe4" path="res://scenes/player_config/player_config.gd" id="1_juank"]
 [ext_resource type="Theme" uid="uid://delr504llxavj" path="res://ui/components/labels/menu_title.tres" id="1_vr0fb"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bf1t5p78ivl55" path="res://ui/components/buttons/button_custom.tscn" id="4_0odvf"]
 [ext_resource type="Texture2D" uid="uid://cp457vq3gybje" path="res://assets/mars-solid-full.svg" id="4_6vyjw"]
 [ext_resource type="ButtonGroup" uid="uid://c8nrdwe3a57s4" path="res://ui/components/buttons/gender_button_group.tres" id="4_juank"]
+[ext_resource type="FontFile" uid="uid://bgwi7agii3msr" path="res://assets/fredoka/static/Fredoka-Bold.ttf" id="4_vrujp"]
 [ext_resource type="Theme" uid="uid://bulw0ba8v1e06" path="res://ui/components/buttons/button_custom_purple.tres" id="5_xtq6a"]
 [ext_resource type="Texture2D" uid="uid://c0qp2fqtg7pm4" path="res://assets/venus-solid-full.svg" id="6_33uhc"]
 [ext_resource type="Texture2D" uid="uid://dr80615flx1m3" path="res://assets/ban-solid-full.svg" id="7_ski7o"]
@@ -202,6 +203,8 @@ offset_right = 254.0
 offset_bottom = 163.0
 grow_horizontal = 2
 theme = ExtResource("1_vr0fb")
+theme_override_fonts/font = ExtResource("4_vrujp")
+theme_override_font_sizes/font_size = 80
 text = "Datos del jugador"
 horizontal_alignment = 1
 

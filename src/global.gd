@@ -1,5 +1,7 @@
 extends Node
 
+const API_BASE_URL := "https://fracto-api.onrender.com/api"
+
 var player_name: String = ""
 var player_gender: String
 var play_time: int
@@ -50,7 +52,6 @@ func _load_auth_session() -> void:
 	var err := cfg.load(AUTH_FILE_PATH)
 
 	if err != OK:
-
 		return
 
 	auth_token = str(cfg.get_value(AUTH_SECTION, "token", ""))

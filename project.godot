@@ -22,6 +22,7 @@ ConfigManager="*res://src/controllers/config_manager.gd"
 Global="*res://src/global.gd"
 InputValidator="*res://src/controllers/input_validator.gd"
 Routes="*res://src/utils/routes.gd"
+StatsManager="*res://src/controllers/stats_manager.gd"
 
 [display]
 
