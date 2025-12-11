@@ -209,11 +209,11 @@ func export_session_to_csv(session: Dictionary) -> String:
 
 	var csv := "\n".join(rows)
 
-	var dir_path := "user://exports"
-	DirAccess.make_dir_recursive_absolute(dir_path)
+	var base_path := "/storage/emulated/0/Download/Fracto"
+	DirAccess.make_dir_recursive_absolute(base_path)
 
 	var file_name := "sesion_%s.csv" % folio
-	var full_path := dir_path + "/" + file_name
+	var full_path := "%s/%s" % [base_path, file_name]
 
 	var file := FileAccess.open(full_path, FileAccess.WRITE)
 	if file == null:

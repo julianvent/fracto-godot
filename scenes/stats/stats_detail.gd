@@ -25,7 +25,6 @@ func _load_session_data() -> void:
 	var group: String  = session.get("group", "")
 	var date: String   = session.get("date", "")
 
-	# Encabezado: escuela + grupo 
 	var linea_superior: String = school
 	if group != "":
 		if linea_superior != "":
@@ -40,7 +39,6 @@ func _load_session_data() -> void:
 
 	header_label.text = header_text
 
-	# Conteos 
 	total_label.text = "%d jugadores" % counts["total"]
 	masc_label.text  = "%d masculinos" % counts["M"]
 	fem_label.text   = "%d femeninas" % counts["F"]
@@ -48,19 +46,31 @@ func _load_session_data() -> void:
 
 
 func _on_export_button_pressed() -> void:
+	if OS.get_name() == "Android":
+		OS.request_permissions()
+
 	var path := StatsManager.export_session_to_csv(StatsManager.current_session)
 
 	if path == "":
-		_show_message("No se pudo exportar el archivo CSV.\nRevisa permisos o vuelve a intentar.", true)
+		_show_message(
+			"No se pudo exportar el archivo CSV.\nRevisa permisos o vuelve a intentar.",
+			true
+		)
 	else:
-		_show_message("Archivo CSV exportado con éxito.\nUbicación:\n" + path)
+		var msg: String
+		if OS.get_name() == "Android":
+			msg = "Archivo CSV exportado con éxito.\n" \
+				+ "Lo encontrarás en:\nDescargas/Fracto"
+		else:
+			msg = "Archivo CSV exportado con éxito.\nUbicación:\n" + path
+
+		_show_message(msg)
 
 
 func _on_back_button_pressed() -> void:
 	SceneManager.change_scene(SceneManager.SCENES.STATS_MENU)
 
 
-# Helpers de UI 
 func _show_message(text: String, is_error: bool = false) -> void:
 	var dialog := AcceptDialog.new()
 	dialog.title = "Error al exportar" if is_error else "Exportar CSV"
