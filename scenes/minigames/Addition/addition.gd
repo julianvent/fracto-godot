@@ -19,7 +19,7 @@ func _connect_fraction_slot() -> void:
 		call_deferred("_connect_fraction_slot")
 
 # Callback cuando una carta es dropeada en el slot
-func _on_fraction_slot_dropped_card(card_node, correct) -> void:
+func _on_fraction_slot_dropped_card(correct) -> void:
 	if _game_over:
 		return
 
