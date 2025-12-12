@@ -142,3 +142,5 @@ offset_bottom = 577.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Nueva ronda"
+
+[connection signal="pressed" from="ButtonCustom" to="." method="_on_button_custom_pressed"]

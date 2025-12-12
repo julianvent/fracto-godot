@@ -27,9 +27,8 @@ var games := []
 	
 func _ready() -> void:
 	games = [
+		{"scene": identification_scene, "replays": identification_replay},
 		{"scene": addition_scene, "replays": identification_replay},
-		{"scene": identification_scene, "replays": identification_replay},
-		{"scene": identification_scene, "replays": identification_replay},
 	]
 	time_left = Global.play_time
 	_reset_for_new_run()
@@ -155,5 +154,5 @@ func _show_stats():
 	state = GameState.FINISHED
 	HUD.hide()
 	_clear_current_scene_children()
-	var stats_sc = continue_scene.instantiate()
+	var stats_sc = stats_scene.instantiate()	
 	current_scene.add_child(stats_sc)

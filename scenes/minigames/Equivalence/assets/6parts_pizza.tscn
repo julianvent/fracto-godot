@@ -1,0 +1,121 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuxoyvieq6i4"]
+
+[ext_resource type="Script" uid="uid://b5xgdexwjasog" path="res://scenes/minigames/Equivalence/assets/6_parts_pizza.gd" id="1_0dq2i"]
+[ext_resource type="Texture2D" uid="uid://chr0eu8rgyvlt" path="res://assets/pizza_button/1-6_OFF.svg" id="2_f7pop"]
+[ext_resource type="Texture2D" uid="uid://c1qq23cgca1fs" path="res://assets/pizza_button/1-6_ON.svg" id="3_jw2dk"]
+[ext_resource type="Script" uid="uid://ntv6v8hn2m73" path="res://scenes/minigames/Equivalence/assets/texture_button_2.gd" id="4_3lbfb"]
+[ext_resource type="Texture2D" uid="uid://d4bsfwx6cit5i" path="res://assets/pizza_button/pizza_6.png" id="5_gripr"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 259.0
+offset_bottom = 261.0
+script = ExtResource("1_0dq2i")
+
+[node name="TextureButton3" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 105.0
+offset_top = -179.0
+offset_right = 424.0
+offset_bottom = 128.0
+rotation = 3.1415927
+scale = Vector2(0.42, 0.42)
+pivot_offset = Vector2(25, 307)
+toggle_mode = true
+texture_normal = ExtResource("2_f7pop")
+texture_pressed = ExtResource("3_jw2dk")
+texture_hover = ExtResource("3_jw2dk")
+texture_disabled = ExtResource("2_f7pop")
+stretch_mode = 0
+script = ExtResource("4_3lbfb")
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 102.0
+offset_top = -177.0
+offset_right = 421.0
+offset_bottom = 130.0
+rotation = 1.0471976
+scale = Vector2(0.42, 0.42)
+pivot_offset = Vector2(25, 307)
+toggle_mode = true
+texture_normal = ExtResource("2_f7pop")
+texture_pressed = ExtResource("3_jw2dk")
+texture_hover = ExtResource("3_jw2dk")
+texture_disabled = ExtResource("2_f7pop")
+stretch_mode = 0
+script = ExtResource("4_3lbfb")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 103.0
+offset_top = -176.0
+offset_right = 422.0
+offset_bottom = 131.0
+scale = Vector2(0.42, 0.42)
+pivot_offset = Vector2(25, 307)
+toggle_mode = true
+texture_normal = ExtResource("2_f7pop")
+texture_pressed = ExtResource("3_jw2dk")
+texture_hover = ExtResource("3_jw2dk")
+texture_disabled = ExtResource("2_f7pop")
+stretch_mode = 0
+script = ExtResource("4_3lbfb")
+
+[node name="TextureButton4" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 103.0
+offset_top = -178.0
+offset_right = 422.0
+offset_bottom = 129.0
+rotation = 2.0943952
+scale = Vector2(0.42, 0.42)
+pivot_offset = Vector2(25, 307)
+toggle_mode = true
+texture_normal = ExtResource("2_f7pop")
+texture_pressed = ExtResource("3_jw2dk")
+texture_hover = ExtResource("3_jw2dk")
+texture_disabled = ExtResource("2_f7pop")
+stretch_mode = 0
+script = ExtResource("4_3lbfb")
+
+[node name="TextureButton5" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 106.99994
+offset_top = -178.0
+offset_right = 426.0
+offset_bottom = 129.0
+rotation = 4.1887903
+scale = Vector2(0.42, 0.42)
+pivot_offset = Vector2(25, 307)
+toggle_mode = true
+texture_normal = ExtResource("2_f7pop")
+texture_pressed = ExtResource("3_jw2dk")
+texture_hover = ExtResource("3_jw2dk")
+texture_disabled = ExtResource("2_f7pop")
+stretch_mode = 0
+script = ExtResource("4_3lbfb")
+
+[node name="TextureButton6" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 105.0
+offset_top = -176.0
+offset_right = 424.0
+offset_bottom = 131.0
+rotation = 5.2359877
+scale = Vector2(0.42, 0.42)
+pivot_offset = Vector2(25, 307)
+toggle_mode = true
+texture_normal = ExtResource("2_f7pop")
+texture_pressed = ExtResource("3_jw2dk")
+texture_hover = ExtResource("3_jw2dk")
+texture_disabled = ExtResource("2_f7pop")
+stretch_mode = 0
+script = ExtResource("4_3lbfb")
+
+[node name="Pizza6" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(133.50003, 133)
+scale = Vector2(0.42, 0.42)
+texture = ExtResource("5_gripr")
