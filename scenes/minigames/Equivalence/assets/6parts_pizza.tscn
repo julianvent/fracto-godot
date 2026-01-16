@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://cuxoyvieq6i4"]
+[gd_scene load_steps=5 format=3 uid="uid://cuxoyvieq6i4"]
 
-[ext_resource type="Script" uid="uid://b5xgdexwjasog" path="res://scenes/minigames/Equivalence/assets/6_parts_pizza.gd" id="1_0dq2i"]
 [ext_resource type="Texture2D" uid="uid://chr0eu8rgyvlt" path="res://assets/pizza_button/1-6_OFF.svg" id="2_f7pop"]
 [ext_resource type="Texture2D" uid="uid://c1qq23cgca1fs" path="res://assets/pizza_button/1-6_ON.svg" id="3_jw2dk"]
 [ext_resource type="Script" uid="uid://ntv6v8hn2m73" path="res://scenes/minigames/Equivalence/assets/texture_button_2.gd" id="4_3lbfb"]
@@ -11,7 +10,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 259.0
 offset_bottom = 261.0
-script = ExtResource("1_0dq2i")
 
 [node name="TextureButton3" type="TextureButton" parent="."]
 layout_mode = 0

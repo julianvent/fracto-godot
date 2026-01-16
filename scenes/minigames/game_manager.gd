@@ -3,6 +3,8 @@ extends Node
 @export var countdown_scene: PackedScene
 @export var identification_scene: PackedScene
 @export var addition_scene: PackedScene
+@export var equivalence8_scene: PackedScene
+@export var equivalence6_scene: PackedScene
 @export var continue_scene: PackedScene
 @export var stats_scene: PackedScene
 @export var identification_replay = 3
@@ -29,6 +31,8 @@ func _ready() -> void:
 	games = [
 		{"scene": identification_scene, "replays": identification_replay},
 		{"scene": addition_scene, "replays": identification_replay},
+		{"scene": equivalence8_scene, "replays": 1},
+		{"scene": equivalence6_scene, "replays": 1},
 	]
 	time_left = Global.play_time
 	_reset_for_new_run()

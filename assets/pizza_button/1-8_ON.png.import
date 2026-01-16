@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cd0yo26k0coki"
-path="res://.godot/imported/1-8_ON.svg-aac17ebff013030d7f006e972abd2f6d.ctex"
+uid="uid://bm6cm6mfls4mp"
+path="res://.godot/imported/1-8_ON.png-b0c78848b39768bebe4889ad67c27315.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pizza_button/1-8_ON.svg"
-dest_files=["res://.godot/imported/1-8_ON.svg-aac17ebff013030d7f006e972abd2f6d.ctex"]
+source_file="res://assets/pizza_button/1-8_ON.png"
+dest_files=["res://.godot/imported/1-8_ON.png-b0c78848b39768bebe4889ad67c27315.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

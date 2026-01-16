@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhbm74gmelrpm"]
+[gd_scene load_steps=10 format=3 uid="uid://bhbm74gmelrpm"]
 
 [ext_resource type="Script" uid="uid://brvwlg83hjt4l" path="res://scenes/minigames/game_manager.gd" id="1_d2yeb"]
 [ext_resource type="PackedScene" uid="uid://13wvkof0tfle" path="res://scenes/minigames/countdown/countdown.tscn" id="2_233sl"]
@@ -7,12 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://b3ofchpw3igp" path="res://scenes/minigames/continue/continue.tscn" id="4_j4180"]
 [ext_resource type="PackedScene" uid="uid://dpd8yv5leavbt" path="res://scenes/minigames/hud.tscn" id="4_wsxsf"]
 [ext_resource type="PackedScene" uid="uid://xhwpk3g8scs1" path="res://scenes/minigames/stats/stats_scene.tscn" id="5_1ch7h"]
+[ext_resource type="PackedScene" uid="uid://b6avbknpg1o7o" path="res://scenes/minigames/Equivalence/assets/equivalence_8_parts.tscn" id="5_y45de"]
+[ext_resource type="PackedScene" uid="uid://dyfndnh7ou3qf" path="res://scenes/minigames/Equivalence/assets/Equivalence_6_parts.tscn" id="6_elr6i"]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_d2yeb")
 countdown_scene = ExtResource("2_233sl")
 identification_scene = ExtResource("3_7p310")
 addition_scene = ExtResource("4_1ch7h")
+equivalence8_scene = ExtResource("5_y45de")
+equivalence6_scene = ExtResource("6_elr6i")
 continue_scene = ExtResource("4_j4180")
 stats_scene = ExtResource("5_1ch7h")
 
